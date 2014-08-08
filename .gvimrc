@@ -8,3 +8,5 @@
 " space.
 set guioptions-=T
 set guioptions-=m
+
+colorscheme=own
