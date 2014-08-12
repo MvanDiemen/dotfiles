@@ -1,0 +1,25 @@
+[user]
+  name  = Michaël van Diemen
+  email = van.diemen.michael@gmail.com
+
+[diff]
+  color = always
+
+[branch]
+  color = always
+
+[core]
+  autocrlf     = input
+  filemode     = false
+  excludesfile = /home/michaelvandiemen/.gitignore_global
+  ignorecase   = false
+  editor       = mvim -f
+
+[color]
+  ui = true
+
+[mergetool "fugitive"]
+  cmd = gvim -f -c \"Gdiff\" \"$MERGED\"
+
+[merge]
+  tool = fugitive
