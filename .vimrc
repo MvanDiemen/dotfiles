@@ -21,7 +21,7 @@
 " what key combination to use for toggling the paste mode and various other
 " settings.
 "
-"
+
 set shell=/bin/bash
 set nocompatible
 set backspace=indent,eol,start
@@ -32,7 +32,7 @@ set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
 set guitablabel=%f
-
+set guifont=Monaco\ 10
 set nohlsearch
 
 " Printer settings
