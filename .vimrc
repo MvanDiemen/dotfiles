@@ -21,6 +21,8 @@
 " what key combination to use for toggling the paste mode and various other
 " settings.
 "
+"
+set shell=/bin/bash
 set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
@@ -30,6 +32,8 @@ set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
 set guitablabel=%f
+
+set nohlsearch
 
 " Printer settings
 set printoptions=number:n
@@ -62,6 +66,8 @@ endif
 
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+" Indent line character
+let g:indentLine_char = '|'
 
 " Syntastic settings.
 let g:syntastic_auto_loc_list  = 0
@@ -73,7 +79,7 @@ let g:syntastic_c_compiler_options      = ' -Wextra -Wall'
 let g:syntastic_c_remove_include_errors = 1
 
 let g:syntastic_cpp_compiler_options   = ' -Wextra -Wall -std=c++0x'
-let g:syntastic_javascript_jshint_conf = '/home/yorickpeterse/.jshint'
+" let g:syntastic_javascript_jshint_conf = '/home/michaelvandiemen/.jshint'
 
 set statusline=\ \"%t\"\ %y\ %m%#warningmsg#%{SyntasticStatuslineFlag()}%*
 
@@ -105,7 +111,8 @@ set number
 set synmaxcol=256
 filetype plugin indent on
 syntax on
-color happy_hacking
+"color happy_hacking
+colorscheme own
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
@@ -113,9 +120,9 @@ if version >= 703
 endif
 
 " Indentation settings
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
 " ============================================================================
@@ -167,6 +174,15 @@ autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
 map <F5> :SyntasticCheck<CR><Esc>
 map <F6> :NERDTreeToggle<CR><Esc>
 
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
+nnoremap tj <C-w>h
+nnoremap t; <C-w>l
+nnoremap tk <C-w>j
+nnoremap tl <C-w>k
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
 "

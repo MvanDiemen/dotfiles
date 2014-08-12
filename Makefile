@@ -23,6 +23,7 @@ vim:
 	@ln -s ${PWD}/.vim ${HOME}/.vim
 	@ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	@ln -s ${PWD}/.gvimrc ${HOME}/.gvimrc
+	@ln -s ${PWD}/.vimrc.after ${HOME}/.vimrc.after
 
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
