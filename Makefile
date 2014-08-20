@@ -5,6 +5,7 @@ help:
 	@echo "vim         # Sets up Vim"
 	@echo "tmux        # Copies the .tmux.conf file to ~/"
 	@echo "git         # Sets the global .gitignore"
+	@echo "gitmac      # Sets the global .gitignore for mac"
 	@echo "fonts       # Configures X11 to properly render fonts"
 	@echo "pry         # Creates the configuration files for Pry"
 	@echo "keybindings # Configures keybindings"
@@ -13,6 +14,7 @@ all:
 	@make vim
 	@make tmux
 	@make git
+	@make gitmac
 	@make fonts
 	@make pry
 	@make keybindings
@@ -27,6 +29,10 @@ vim:
 
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
+
+git:
+	@cp .gitignore_global ${HOME}/.gitignore_global
+	@cp .gitconfigmac ${HOME}/.gitconfig
 
 git:
 	@cp .gitignore_global ${HOME}/.gitignore_global
