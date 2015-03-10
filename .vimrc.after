@@ -1,16 +1,6 @@
 colorscheme own
 set shell=/bin/bash
 
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
-
-nnoremap tj <C-w>h
-nnoremap t; <C-w>l
-nnoremap tk <C-w>j
-nnoremap tl <C-w>k
-
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1

@@ -174,15 +174,6 @@ autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
 map <F5> :SyntasticCheck<CR><Esc>
 map <F6> :NERDTreeToggle<CR><Esc>
 
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
-
-nnoremap tj <C-w>h
-nnoremap t; <C-w>l
-nnoremap tk <C-w>j
-nnoremap tl <C-w>k
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
 "

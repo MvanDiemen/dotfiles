@@ -30,7 +30,7 @@ vim:
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
 
-git:
+gitmac:
 	@cp .gitignore_global ${HOME}/.gitignore_global
 	@cp .gitconfigmac ${HOME}/.gitconfig
 
