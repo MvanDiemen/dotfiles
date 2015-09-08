@@ -1,7 +1,7 @@
 set -x CHRUBY_ROOT /usr
 
-source /usr/share/chruby/chruby.fish
-source /usr/share/chruby/auto.fish
+source /usr/local/share/chruby/chruby.fish
+source /usr/local/share/chruby/auto.fish
 source $HOME/.config/fish/private.fish
 
 set -x TERM 'screen-256color'
