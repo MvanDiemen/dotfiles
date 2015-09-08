@@ -51,4 +51,4 @@ keybindings:
 	@xmodmap ${HOME}/.Xmodmap
 
 fish:
-	@ln -s ${PWD}./config/fish ${HOME}/.config/
+	@ln -s ${PWD}/.config/fish ${HOME}/.config/
