@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter
+[submodule ".vim/bundle/you_complete_me"]
+	path = .vim/bundle/you_complete_me
+	url = git@github.com:Valloric/YouCompleteMe
