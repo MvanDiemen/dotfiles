@@ -10,6 +10,7 @@ help:
 	@echo "pry         # Creates the configuration files for Pry"
 	@echo "keybindings # Configures keybindings"
 	@echo "fish        # Configures Fish"
+	@echo "brew        # Installs and configures Homebrew"
 
 all:
 	@make vim
@@ -56,3 +57,8 @@ keybindings:
 
 fish:
 	@ln -s ${PWD}/.config/fish ${HOME}/.config/
+
+brew:
+	@ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	@brew tap igas/fry
+	@brew install postgresql vim chruby chruby-fish fry node ragel the_silver_searcher tree ruby-build
