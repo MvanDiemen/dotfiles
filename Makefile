@@ -11,6 +11,7 @@ help:
 	@echo "keybindings # Configures keybindings"
 	@echo "fish        # Configures Fish"
 	@echo "brew        # Installs and configures Homebrew"
+	@echo "gem         # Sets gem doc settings"
 
 all:
 	@make vim
@@ -20,6 +21,7 @@ all:
 	@make fonts
 	@make pry
 	@make keybindings
+	@make gem
 
 vim:
 	@git submodule init
@@ -62,3 +64,6 @@ brew:
 	@ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	@brew tap igas/fry
 	@brew install postgresql vim chruby chruby-fish fry node ragel the_silver_searcher tree ruby-build
+
+gem:
+	@ln -s ${PWD}/.gemrc ${HOME}/.gemrc
