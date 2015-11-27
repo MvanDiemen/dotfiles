@@ -12,6 +12,7 @@ help:
 	@echo "fish        # Configures Fish"
 	@echo "brew        # Installs and configures Homebrew"
 	@echo "gem         # Sets gem doc settings"
+	@echo "awareness   # Installs Awareness in the Application folder"
 
 all:
 	@make vim
@@ -22,6 +23,7 @@ all:
 	@make pry
 	@make keybindings
 	@make gem
+	@make awareness
 
 vim:
 	@git submodule init
@@ -62,8 +64,11 @@ fish:
 
 brew:
 	@ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	@brew tap igas/fry
-	@brew install postgresql vim chruby chruby-fish fry node ragel the_silver_searcher tree ruby-build
+	@brew install vim chruby chruby-fish node ragel the_silver_searcher tree ruby-install
 
 gem:
 	@ln -s ${PWD}/.gemrc ${HOME}/.gemrc
+
+awareness:
+	@ln -s ${PWD}/Awareness.app /Applications/Awareness.app
+
