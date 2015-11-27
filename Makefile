@@ -1,18 +1,19 @@
 default_target: help
 
 help:
-	@echo "all         # Sets up everything"
-	@echo "vim         # Sets up Vim"
-	@echo "tmux        # Copies the .tmux.conf file to ~/"
-	@echo "git         # Sets the global .gitignore"
-	@echo "gitmac      # Sets the global .gitignore for mac"
-	@echo "fonts       # Configures X11 to properly render fonts"
-	@echo "pry         # Creates the configuration files for Pry"
-	@echo "keybindings # Configures keybindings"
-	@echo "fish        # Configures Fish"
-	@echo "brew        # Installs and configures Homebrew"
-	@echo "gem         # Sets gem doc settings"
-	@echo "awareness   # Installs Awareness in the Application folder"
+	@echo "all          # Sets up everything"
+	@echo "vim          # Sets up Vim"
+	@echo "tmux         # Copies the .tmux.conf file to ~/"
+	@echo "git          # Sets the global .gitignore"
+	@echo "gitmac       # Sets the global .gitignore for mac"
+	@echo "fonts        # Configures X11 to properly render fonts"
+	@echo "pry          # Creates the configuration files for Pry"
+	@echo "keybindings  # Configures keybindings"
+	@echo "fish         # Configures Fish"
+	@echo "brew         # Installs and configures Homebrew"
+	@echo "gem          # Sets gem doc settings"
+	@echo "awareness    # Installs Awareness in the Application folder"
+	@echo "ruby-version # Installs the version from the ruby-version file"
 
 all:
 	@make vim
@@ -24,6 +25,7 @@ all:
 	@make keybindings
 	@make gem
 	@make awareness
+	@make ruby-version
 
 vim:
 	@git submodule init
@@ -72,3 +74,8 @@ gem:
 awareness:
 	@ln -s ${PWD}/Awareness.app /Applications/Awareness.app
 
+ruby-version:
+	@ln -s ${PWD}/.ruby-version ${HOME}/.ruby-version
+	for file in ${HOME}/.ruby-version; do \
+		@ruby-install "$${file}"; \
+	done ;
