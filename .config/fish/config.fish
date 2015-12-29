@@ -16,8 +16,6 @@ set fish_pager_color_progress yellow
 set fish_pager_color_completion normal
 set fish_pager_color_description $fish_color_comment
 
-chruby_reset
-
 if test -e $PWD/.ruby-version
   chruby (cat $PWD/.ruby-version)
 else

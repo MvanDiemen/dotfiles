@@ -1,3 +1,3 @@
-function gpull -d 'Git pull'
+function gpull -d 'git pull'
   git pull --rebase origin $argv
 end
