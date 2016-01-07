@@ -16,6 +16,7 @@ help:
 	@echo "ruby-version # Installs the version from the ruby-version file"
 
 all:
+	@make brew
 	@make vim
 	@make tmux
 	@make git
