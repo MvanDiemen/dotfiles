@@ -46,7 +46,6 @@ function parse_git_tag_or_branch
 	end
 end
 
-set -x gitstatus shell -c (git status 2> /dev/null)
 
 function git_ahead
   echo $gitstatus | grep 'Your branch is ahead' > /dev/null
@@ -84,6 +83,7 @@ function is_svn
 end
 
 function fish_prompt -d "Write out the prompt"
+  set -x gitstatus shell -c (git status 2> /dev/null)
 	# Color writeable dirs green, read-only dirs red
 	if test -w "."
 		printf ' %s%s' (set_color green) (prompt_pwd)
