@@ -46,8 +46,23 @@ function parse_git_tag_or_branch
 	end
 end
 
+set -x gitstatus shell -c (git status 2> /dev/null)
+
+function git_ahead
+  echo $gitstatus | grep 'Your branch is ahead' > /dev/null
+end
+
+function git_diverged
+  echo $gitstatus | grep 'have diverged' > /dev/null
+end
+
+function git_behind
+  echo $gitstatus | grep 'Your branch is behind' > /dev/null
+end
+
 function git_parse_ahead_of_remote
-	git status ^/dev/null | grep 'Your branch is ahead of' | sed -e 's/# Your branch is ahead of .* by \(.*\) commit.*/\1/g'
+  git status ^/dev/null | grep 'Your branch is ahead' | echo '^'
+  git status ^/dev/null | grep 'Your branch is behind' | echo 'v'
 end
 
 function is_git
@@ -90,9 +105,13 @@ function fish_prompt -d "Write out the prompt"
 	if is_git
 		printf ' %s%s/%s' (set_color normal) (set_color blue) (parse_git_tag_or_branch)
 		set git_ahead_of_remote (git_parse_ahead_of_remote)
-		if [ -n "$git_ahead_of_remote" -a "$git_ahead_of_remote" != "0" ]
-			printf ' +%s' (git_parse_ahead_of_remote)
-		end
+    if git_ahead
+      printf ' ↑'
+    else if git_behind
+      printf " ↓"
+    else if git_diverged
+      printf " ↕"
+    end
 	end
 	printf '%s> ' (set_color normal)
 end
