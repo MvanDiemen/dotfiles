@@ -112,7 +112,7 @@ set synmaxcol=256
 filetype plugin indent on
 syntax on
 "color happy_hacking
-colorscheme own
+color crystin
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
