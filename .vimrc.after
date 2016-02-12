@@ -1,4 +1,4 @@
-colorscheme own
+color crystin
 set shell=/bin/bash
 
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
