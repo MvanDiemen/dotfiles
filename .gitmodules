@@ -70,9 +70,3 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git@github.com:tpope/vim-surround
-[submodule ".vim/bundle/vim-editorconfig"]
-	path = editorconfig-vim
-	url = git@github.com:editorconfig/editorconfig-vim.git
-[submodule ".vim/bundle/vim-commandt"]
-	path = .vim/bundle/vim-commandt
-	url = git@github.com:wincent/command-t
