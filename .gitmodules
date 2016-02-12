@@ -67,3 +67,12 @@
 [submodule ".vim/bundle/typescript-vim"]
 	path = .vim/bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "vim-surround"]
+	path = vim-surround
+	url = git@github.com:tpope/vim-surround
+[submodule "vim-editorconfig"]
+	path = editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "command-t"]
+	path = command-t
+	url = git@github.com:wincent/command-t
