@@ -48,15 +48,15 @@ end
 
 
 function git_ahead
-  echo $gitstatus | grep 'Your branch is ahead' > /dev/null
+  echo shell -c (git status 2> /dev/null) | grep 'Your branch is ahead' > /dev/null
 end
 
 function git_diverged
-  echo $gitstatus | grep 'have diverged' > /dev/null
+  echo shell -c (git status 2> /dev/null) | grep 'have diverged' > /dev/null
 end
 
 function git_behind
-  echo $gitstatus | grep 'Your branch is behind' > /dev/null
+  echo shell -c (git status 2> /dev/null) | grep 'Your branch is behind' > /dev/null
 end
 
 function git_parse_ahead_of_remote
@@ -83,7 +83,6 @@ function is_svn
 end
 
 function fish_prompt -d "Write out the prompt"
-  set -x gitstatus shell -c (git status 2> /dev/null)
 	# Color writeable dirs green, read-only dirs red
 	if test -w "."
 		printf ' %s%s' (set_color green) (prompt_pwd)
@@ -104,14 +103,6 @@ function fish_prompt -d "Write out the prompt"
 	# Print git tag or branch
 	if is_git
 		printf ' %s%s/%s' (set_color normal) (set_color blue) (parse_git_tag_or_branch)
-		set git_ahead_of_remote (git_parse_ahead_of_remote)
-    if git_ahead
-      printf ' ↑'
-    else if git_behind
-      printf " ↓"
-    else if git_diverged
-      printf " ↕"
-    end
 	end
 	printf '%s> ' (set_color normal)
 end
