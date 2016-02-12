@@ -174,10 +174,12 @@ complete -f -c git -n '__fish_git_needs_command' -a prune -d 'Prune all unreacha
 
 ### pull
 complete -f -c git -n '__fish_git_needs_command' -a pull -d 'Fetch from and merge with another repository or a local branch'
+complete -c git -n '__fish_git_using_command pull'  -a '(__fish_git_branches)' --description 'Branch'
 # TODO options
 
 ### push
 complete -f -c git -n '__fish_git_needs_command' -a push -d 'Update remote refs along with associated objects'
+complete -c git -n '__fish_git_using_command push'  -a '(__fish_git_branches)' --description 'Branch'
 # TODO options
 
 ### rebase
