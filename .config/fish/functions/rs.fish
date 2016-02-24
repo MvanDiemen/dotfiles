@@ -1,3 +1,3 @@
 function rs -d 'rails server'
-  bundle exec rails server -p 5000
+  bundle exec rails server -p $argv
 end
