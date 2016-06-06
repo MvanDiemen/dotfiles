@@ -1,3 +1,3 @@
 function vim
-  mvim vim $argv
+  env TRUE_COLOR=1 nvim $argv
 end
