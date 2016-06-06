@@ -10,8 +10,7 @@
 " The code in this configuration file is released in the public domain. You're
 " free to use it as you see fit.
 "
-" Author:  Yorick Peterse
-" Website: http://yorickpeterse.com/
+" Author:  Michaël van Diemen
 " License: Public Domain
 
 " ============================================================================
@@ -22,7 +21,7 @@
 " settings.
 "
 
-set shell=/bin/bash
+set shell=/usr/local/bin/fish
 set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
@@ -34,6 +33,9 @@ set tabline=%f
 set guitablabel=%f
 set guifont=Monaco\ 10
 set nohlsearch
+
+" Do not show GUI Messages
+set guioptions+=c
 
 " Printer settings
 set printoptions=number:n
@@ -56,6 +58,9 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching  = 0
+
+  let g:ag_working_path_mode="r"
 endif
 
 " ============================================================================
@@ -67,37 +72,43 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " Indent line character
-let g:indentLine_char = '|'
+  let g:indentLine_char = '|'
 
 " Syntastic settings.
-let g:syntastic_auto_loc_list  = 0
-let g:syntastic_stl_format     = '[%E{Errors: %e, line %fe}%B{ | }'
-let g:syntastic_stl_format    .= '%W{Warnings: %w, line %fw}]'
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 0
+let g:syntastic_error_symbol = '!'
+let g:syntastic_ignore_files = ['\.min\.js$', '\.min\.css$']
+let g:syntastic_loc_list_height = 5
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_error_symbol = '!'
+let g:syntastic_style_warning_symbol = '!'
 
-let g:syntastic_c_check_header          = 0
-let g:syntastic_c_compiler_options      = ' -Wextra -Wall'
-let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_html_checkers = []
+let g:syntastic_java_checkers = []
+let g:syntastic_javascript_checkers = []
+let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_sh_checkers = ['shellcheck']
 
-let g:syntastic_cpp_compiler_options   = ' -Wextra -Wall -std=c++0x'
-" let g:syntastic_javascript_jshint_conf = '/home/michaelvandiemen/.jshint'
-
-set statusline=\ \"%t\"\ %y\ %m%#warningmsg#%{SyntasticStatuslineFlag()}%*
+let g:syntastic_mode_map = {
+  \ 'mode': 'passive',
+  \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust', 'rupy']}
 
 " Ignore syntax checking for Shell scripts as this is currently broken.
 let g:syntastic_mode_map = {
   \ 'mode': 'passive',
-  \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust']}
+  \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust', 'ruby']}
 
-" Eat your own dog food
-let g:syntastic_ruby_checkers = ['rubylint']
-
-" UltiSnips settings.
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " NERDTree settings.
 let NERDTreeShowBookmarks = 0
 let NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__']
+let NERDTreeWinSize       = 25
 
 " ============================================================================
 " SYNTAX SETTINGS
@@ -108,7 +119,9 @@ let NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__']
 set textwidth=80
 set nowrap
 set number
-set synmaxcol=256
+set synmaxcol=500
+set background=dark
+
 filetype plugin indent on
 syntax on
 "color happy_hacking
@@ -166,6 +179,11 @@ autocmd! FileType eruby  setlocal sw=2 sts=2 ts=2 expandtab
 autocmd! FileType yaml   setlocal sw=2 sts=2 ts=2 expandtab
 autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
 
+" Set rubycomplete buffer for ruby and eruby files
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 " ============================================================================
 " KEY BINDINGS
 "
@@ -173,6 +191,37 @@ autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
 "
 map <F5> :SyntasticCheck<CR><Esc>
 map <F6> :NERDTreeToggle<CR><Esc>
+map <F7> :GitGutterLineHighlightsToggle<CR><Esc>
+map <F8> :Gblame<space>w<CR><Esc>
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+nnoremap \ :Ag<SPACE>
+" ============================================================================
+" NVIM SPECIFICS
+"
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+  tnoremap <Esc> <C-\><C-n>
+
+  runtime! python_setup.vim
+endif
+
+if has('unix')
+  let s:uname = system("uname")
+  let g:python_host_prog='/usr/bin/python'
+  if s:uname == "Darwin\n"
+    let g:python_host_prog='/usr/bin/python'
+    " let g:python3_host_prog='/usr/local/bin/python3'
+  endif
+endif
 
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
@@ -186,3 +235,5 @@ map <F6> :NERDTreeToggle<CR><Esc>
 if filereadable(expand('~/.hvimrc'))
   source ~/.hvimrc
 endif
+
+autocmd VimEnter * colorscheme crystin

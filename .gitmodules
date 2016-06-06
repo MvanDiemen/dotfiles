@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/delimitmate"]
 	path = .vim/bundle/delimitmate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/pathogen"]
 	path = .vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
@@ -63,7 +60,7 @@
   url = git@github.com:Yggdroot/indentLine.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
-	url = git@github.com:scrooloose/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter
 [submodule ".vim/bundle/typescript-vim"]
 	path = .vim/bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
@@ -79,3 +76,9 @@
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
+[submodule ".vim/bundle/NERDTree-git-plugin"]
+	path = .vim/bundle/NERDTree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree

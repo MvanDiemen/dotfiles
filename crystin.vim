@@ -37,6 +37,7 @@ let s:gray3    = "#6c6c6c"
 let s:gray4    = "#7c7c7c"
 let s:gray5    = "#aaaaaa"
 let s:gray6    = "#393939"
+let s:gray8    = "#828282"
 
 " ============================================================================
 " Terminal Colors
@@ -90,7 +91,7 @@ endfunction
 
 call s:Color("Pmenu",    s:white,  s:black2, s:t_white,  s:t_black2)
 call s:Color("PmenuSel", s:white,  s:gray2,  s:t_white,  s:t_gray2)
-call s:Color("Cursor",   "NONE",   s:gray2,  "NONE",     s:t_gray2)
+call s:Color("Cursor",   "NONE",   s:gray8,  "NONE",     s:t_gray2)
 call s:Color("Normal",   s:white,  s:gray1,  s:t_white,  s:t_gray1)
 call s:Color("Search",   s:black1, s:yellow, s:t_black1, s:t_yellow)
 call s:Color("Title",    s:white,  "NONE",   s:t_white,  "NONE", "bold")
