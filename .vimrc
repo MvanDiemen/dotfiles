@@ -31,8 +31,10 @@ set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
 set guitablabel=%f
-set guifont=Monaco\ 10
-set nohlsearch
+
+if has("gui_running")
+  set lines=999 columns=999
+endif
 
 " Do not show GUI Messages
 set guioptions+=c
@@ -72,8 +74,10 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " Indent line character
-  let g:indentLine_char = '|'
-
+let g:indentLine_char = '┊'
+"let g:indentLine_char = '¦'
+let g:indentLine_first_char = '|'
+let g:indentLine_showFirstIndentLevel = 0
 " Syntastic settings.
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
@@ -105,10 +109,22 @@ let g:syntastic_mode_map = {
 
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " NERDTree settings.
-let NERDTreeShowBookmarks = 0
-let NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__']
-let NERDTreeWinSize       = 25
+let g:NERDTreeShowBookmarks = 0
+let g:NERDTreeShowHidden    = 1
+let g:NERDTreeMinimalUI     = 1
+let g:NERDTreeDirArrows     = 1
+let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
+let g:NERDTreeWinSize       = 30
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+
+let g:NERDSpaceDelims      = 1
+let g:NERDCompactSexyComs  = 1
 
 " ============================================================================
 " SYNTAX SETTINGS
@@ -125,7 +141,8 @@ set background=dark
 filetype plugin indent on
 syntax on
 "color happy_hacking
-color crystin
+" color crystin
+color hybrid
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
@@ -198,14 +215,17 @@ nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
 nnoremap \ :Ag<SPACE>
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 " ============================================================================
 " NVIM SPECIFICS
 "
 if !has('nvim')
   set ttymouse=xterm2
+  set guifont=Monaco:h12
 endif
 
 if has('nvim')
+  set guifont=Monaco:h11
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -223,6 +243,9 @@ if has('unix')
   endif
 endif
 
+autocmd VimEnter * NERDTree
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
 "
@@ -235,5 +258,3 @@ endif
 if filereadable(expand('~/.hvimrc'))
   source ~/.hvimrc
 endif
-
-autocmd VimEnter * colorscheme crystin
