@@ -9,4 +9,4 @@
 " 2. they don't seem to work and will instead just show a big warning from
 "    `ri`.
 "
-setlocal balloonexpr=
+" setlocal balloonexpr=
