@@ -108,6 +108,7 @@ let s:palette.gui.green      = { 'dark' : "#b5bd68"        , 'light' : "#005f00"
 let s:palette.gui.aqua       = { 'dark' : "#8abeb7"        , 'light' : "#005f5f" }
 let s:palette.gui.blue       = { 'dark' : "#81a2be"        , 'light' : "#00005f" }
 let s:palette.gui.purple     = { 'dark' : "#b294bb"        , 'light' : "#5f005f" }
+let s:palette.gui.windowline = { 'dark' : "#505050"        , 'light' : "#9e9e9e" }
 let s:palette.gui.window     = { 'dark' : "#303030"        , 'light' : "#9e9e9e" }
 let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c"        , 'light' : "#808080" }
 let s:palette.gui.addbg      = { 'dark' : "#5F875F"        , 'light' : "#d7ffd7" }
@@ -151,6 +152,7 @@ endif
 let s:palette.cterm.background = { 'dark' : "234"              , 'light' : "254" }
 let s:palette.cterm.foreground = { 'dark' : s:cterm_foreground , 'light' : "16"  }
 let s:palette.cterm.window     = { 'dark' : "236"              , 'light' : "247" }
+let s:palette.cterm.windowline = { 'dark' : "236"              , 'light' : "247" }
 let s:palette.cterm.selection  = { 'dark' : s:cterm_selection  , 'light' : "250" }
 let s:palette.cterm.line       = { 'dark' : s:cterm_line       , 'light' : "252" }
 let s:palette.cterm.comment    = { 'dark' : s:cterm_comment    , 'light' : "59"  }
@@ -210,6 +212,7 @@ call s:build_prim('bg', 'aqua')
 call s:build_prim('bg', 'blue')
 call s:build_prim('bg', 'purple')
 call s:build_prim('bg', 'window')
+call s:build_prim('bg', 'windowline')
 call s:build_prim('bg', 'darkcolumn')
 call s:build_prim('bg', 'addbg')
 call s:build_prim('bg', 'addfg')
@@ -235,6 +238,7 @@ call s:build_prim('fg', 'aqua')
 call s:build_prim('fg', 'blue')
 call s:build_prim('fg', 'purple')
 call s:build_prim('fg', 'window')
+call s:build_prim('fg', 'windowline')
 call s:build_prim('fg', 'darkcolumn')
 call s:build_prim('fg', 'addbg')
 call s:build_prim('fg', 'addfg')
@@ -271,6 +275,7 @@ exe "let s:sp_aqua       = ' guisp=". s:palette.gui.aqua[s:style]       ."'"
 exe "let s:sp_blue       = ' guisp=". s:palette.gui.blue[s:style]       ."'"
 exe "let s:sp_purple     = ' guisp=". s:palette.gui.purple[s:style]     ."'"
 exe "let s:sp_window     = ' guisp=". s:palette.gui.window[s:style]     ."'"
+exe "let s:sp_windowline = ' guisp=". s:palette.gui.windowline[s:style]     ."'"
 exe "let s:sp_addbg      = ' guisp=". s:palette.gui.addbg[s:style]      ."'"
 exe "let s:sp_addfg      = ' guisp=". s:palette.gui.addfg[s:style]      ."'"
 exe "let s:sp_changebg   = ' guisp=". s:palette.gui.changebg[s:style]   ."'"
@@ -295,7 +300,7 @@ exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
 exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
-exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
+exe "hi! VertSplit"     .s:fg_windowline  .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
