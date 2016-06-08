@@ -76,9 +76,6 @@
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule ".vim/bundle/NERDTree-git-plugin"]
-	path = .vim/bundle/NERDTree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree
