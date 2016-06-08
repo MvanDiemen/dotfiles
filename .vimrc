@@ -26,6 +26,7 @@ set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
 set backupskip=/tmp/*
+set guifont=Monaco:h12
 set clipboard=unnamed
 set pastetoggle=<F2>
 set mouse=a
@@ -113,20 +114,9 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " NERDTree settings.
-let g:NERDTreeShowBookmarks = 0
 let g:NERDTreeShowHidden    = 1
-let g:NERDTreeMinimalUI     = 1
-let g:NERDTreeDirArrows     = 1
 let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
 let g:NERDTreeWinSize       = 30
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
-
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-
-let g:NERDSpaceDelims      = 1
-let g:NERDCompactSexyComs  = 1
 
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
@@ -245,11 +235,9 @@ nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 "
 if !has('nvim')
   set ttymouse=xterm2
-  set guifont=Monaco:h12
 endif
 
 if has('nvim')
-  set guifont=Monaco:h11
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -267,9 +255,12 @@ if has('unix')
   endif
 endif
 
-autocmd VimEnter * NERDTree
+" Open NERDTree in new tabs and windows if no command line args set
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
 "

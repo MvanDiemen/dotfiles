@@ -88,9 +88,6 @@
 [submodule ".vim/bundle/powerline"]
 	path = .vim/bundle/powerline
 	url = https://www.github.com/powerline/powerline
-[submodule ".vim/bundle/vim-devicons"]
-	path = .vim/bundle/vim-devicons
-	url = https://www.github.com/ryanoasis/vim-devicons
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
