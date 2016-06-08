@@ -21,7 +21,7 @@
 " settings.
 "
 
-set shell=/usr/local/bin/fish
+set shell=sh
 set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
@@ -117,6 +117,18 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:NERDTreeShowHidden    = 1
 let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
 let g:NERDTreeWinSize       = 30
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
