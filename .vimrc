@@ -31,6 +31,8 @@ set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
 set guitablabel=%f
+set lazyredraw
+set ttyfast
 
 if has("gui_running")
   set lines=999 columns=999
@@ -74,10 +76,10 @@ endif
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " Indent line character
-let g:indentLine_char = '┊'
-"let g:indentLine_char = '¦'
-let g:indentLine_first_char = '|'
+let g:indentLine_char = '|'
+let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 0
+
 " Syntastic settings.
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
@@ -126,7 +128,29 @@ let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDSpaceDelims      = 1
 let g:NERDCompactSexyComs  = 1
 
-" ============================================================================
+" Airline/Powerline settings.
+let g:airline_powerline_fonts = 1
+let g:airline_theme           = 'bubblegum'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" Airline unicode symbols due to Monaco font.
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+"============================================================================
 " SYNTAX SETTINGS
 "
 " Settings related to configuring the syntax features of Vim such as the text
