@@ -35,10 +35,7 @@ vim:
 	@ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	@ln -s ${PWD}/.gvimrc ${HOME}/.gvimrc
 	@ln -s ${PWD}/.vimrc.after ${HOME}/.vimrc.after
-
-vimcolors:
-	@cp own.vim ${HOME}/.vim/colors
-	@cp own.vim /usr/share/vim/vim*/colors
+	@ln -s ${PWD}/.vimrc ${HOME}/.config/init.vim
 
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
