@@ -82,7 +82,7 @@ endif
 " Setup Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('.vim/bundle/')
+call vundle#begin('~/repos/dotfiles/.vim/bundle/')
 
   " Necessary Vundle plugin
   Plugin 'VundleVim/Vundle.vim'
@@ -111,7 +111,24 @@ call vundle#begin('.vim/bundle/')
   Plugin 'pangloss/vim-javascript'
   Plugin 'noprompt/vim-yardoc'
   Plugin 'MarcWeber/vim-addon-mw-utils'
-
+  Plugin 'skalnik/vim-vroom'
+  Plugin 'junegunn/goyo.vim'
+  Plugin 'morhetz/gruvbox'
+  Plugin 'jdkanani/vim-material-theme'
+  Plugin 'ajh17/Spacegray.vim'
+  Plugin 'juanedi/predawn.vim'
+  Plugin 'AlessandroYorba/Sierra'
+  Plugin 'AlessandroYorba/Alduin'
+  Plugin 'kocakosm/hilal'
+  Plugin 'marcopaganini/termschool-vim-theme'
+  Plugin 'mkarmona/colorsbox'
+  Plugin 'tlhr/anderson.vim'
+  Plugin 'xiaody/thornbird.vim'
+  Plugin 'blackgate/tropikos-vim-theme'
+  Plugin 'kristijanhusak/vim-hybrid-material'
+  Plugin 'justincampbell/vim-railscasts'
+  Plugin 'w0ng/vim-hybrid'
+  Plugin 'zandrmartin/vim-distill'
 
 call vundle#end()
 filetype plugin indent on
@@ -154,6 +171,7 @@ let g:syntastic_mode_map = {
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+let g:spacegray_italicize_comments = 1
 " NERDTree settings.
 let g:NERDTreeShowHidden    = 1
 let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
@@ -319,7 +337,7 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
