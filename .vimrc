@@ -34,6 +34,9 @@ set tabline=%f
 set guitablabel=%f
 set lazyredraw
 set ttyfast
+set hidden
+set history=100
+set hlsearch
 
 if has("gui_running")
   set lines=999 columns=999
@@ -73,9 +76,47 @@ endif
 "
 " Settings for various plugins such as Pathogen and Syntastic.
 "
+" runtime bundle/pathogen/autoload/pathogen.vim
+" call pathogen#infect()
 
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
+" Setup Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('.vim/bundle/')
+
+  " Necessary Vundle plugin
+  Plugin 'VundleVim/Vundle.vim'
+
+  Plugin 'rking/ag.vim'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'Raimondi/delimitMate'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-surround'
+  Plugin 'Yggdroot/indentLine'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'powerline/powerline'
+  Plugin 'godlygeek/tabular'
+  Plugin 'vim-scripts/tComment'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'easymotion/vim-easymotion'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'noprompt/vim-yardoc'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+
+
+call vundle#end()
+filetype plugin indent on
+
+
 " Indent line character
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
@@ -152,6 +193,9 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" Git Gutter settings
+let g:gitgutter_sign_column_always = 1
+
 "============================================================================
 " SYNTAX SETTINGS
 "
@@ -161,6 +205,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 set textwidth=80
 set nowrap
 set number
+set showmatch
 set synmaxcol=500
 set background=dark
 
@@ -180,6 +225,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+set smartindent
+set autoindent
 
 " ============================================================================
 " CUSTOM FUNCTIONS
@@ -242,6 +289,7 @@ nmap [h <Plug>GitGutterPrevHunk
 
 nnoremap \ :Ag<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " ============================================================================
 " NVIM SPECIFICS
 "
