@@ -308,6 +308,12 @@ nmap [h <Plug>GitGutterPrevHunk
 nnoremap \ :Ag<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+
+noremap <Up>    <NOP>
+noremap <Down>  <NOP>
+noremap <Left>  <NOP>
+noremap <Right> <NOP>
+
 " ============================================================================
 " NVIM SPECIFICS
 "
@@ -337,7 +343,7 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
