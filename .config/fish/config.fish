@@ -12,3 +12,5 @@ source /usr/local/share/chruby/auto.fish
 source $HOME/.config/fish/private.fish
 
 source config.1457688028.fish
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
