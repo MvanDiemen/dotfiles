@@ -1,1 +1,0 @@
-.vim/colors/crystin.vim
