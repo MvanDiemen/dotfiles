@@ -14,6 +14,82 @@
 " License: Public Domain
 
 " ============================================================================
+" PLUGIN SETTINGS
+"
+" Settings for various plugins such as Pathogen and Syntastic.
+"
+" runtime bundle/pathogen/autoload/pathogen.vim
+" call pathogen#infect()
+
+" Setup Vundle
+filetype off
+
+let needsToInstallBundles=0
+if !isdirectory(expand("~/.vim/bundle/vundle"))
+  echo "\nInstalling Vim dependencies... Please be patient!\n"
+  silent !mkdir -p ~/.vim/tmp
+  silent !mkdir -p ~/.vim/swap
+  silent !mkdir -p ~/.vim/bundle
+  silent !mkfifo ~/.vim/commands-fifo
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let needsToInstallBundles=1
+endif
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Do these first, because other plugins depend on them
+Bundle 'gmarik/vundle'
+
+" Ag is deprecated but I still prefer it to Ack.
+Bundle 'mileszs/ack.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'raimondi/delimitmate'
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'yggdroot/indentline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'xuyuanp/nerdtree-git-plugin'
+Bundle 'powerline/powerline'
+Bundle 'vim-scripts/tcomment'
+Bundle 'tomtom/tlib_vim'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'sirver/ultisnips'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'pangloss/vim-javascript'
+Bundle 'noprompt/vim-yardoc'
+Bundle 'marcweber/vim-addon-mw-utils'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'chrisbra/Colorizer'
+
+" ================================
+" BUNDLE COLORSCHEMES
+Bundle 'w0ng/vim-hybrid'
+Bundle 'yorickpeterse/happy_hacking.vim'
+Bundle 'easysid/mod8.vim'
+Bundle 'rakr/vim-two-firewatch'
+Bundle 'aereal/vim-colors-japanesque'
+Bundle 'tyrannicaltoucan/vim-deep-space'
+Bundle 'lifepillar/vim-wwdc16-theme'
+Bundle 'MvanDiemen/ghostbuster'
+Bundle 'ronny/birds-of-paradise.vim'
+Bundle 'raphamorim/lucario'
+
+if needsToInstallBundles == 1
+  echo "\nInstalling Bundles, please ignore key map error messages\n"
+  :BundleInstall!
+  echo "\nInstalled.\n"
+endif
+
+filetype plugin indent on
+
+" ============================================================================
 " GENERAL SETTINGS
 "
 " A collection of general Vim settings such as enabling the use of the mouse,
@@ -26,7 +102,7 @@ set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
 set backupskip=/tmp/*
-set guifont=Monaco:h12
+set guifont=Hack\ 9
 set clipboard=unnamed
 set pastetoggle=<F2>
 set mouse=a
@@ -43,7 +119,8 @@ if has("gui_running")
 endif
 
 " Do not show GUI Messages
-set guioptions+=c
+" Remove scroll bars
+set guioptions=aemc
 
 " Printer settings
 set printoptions=number:n
@@ -65,74 +142,13 @@ let loaded_matchparen = 1
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching  = 0
-
-  let g:ag_working_path_mode="r"
+  let g:ackprg="ag --vimgrep"
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --vimgrep --smart-case ""'
 endif
 
-" ============================================================================
-" PLUGIN SETTINGS
-"
-" Settings for various plugins such as Pathogen and Syntastic.
-"
-" runtime bundle/pathogen/autoload/pathogen.vim
-" call pathogen#infect()
-
-" Setup Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/repos/dotfiles/.vim/bundle/')
-
-  " Necessary Vundle plugin
-  Plugin 'VundleVim/Vundle.vim'
-
-  Plugin 'rking/ag.vim'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'Raimondi/delimitMate'
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'tpope/vim-endwise'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-surround'
-  Plugin 'Yggdroot/indentLine'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'Xuyuanp/nerdtree-git-plugin'
-  Plugin 'powerline/powerline'
-  Plugin 'godlygeek/tabular'
-  Plugin 'vim-scripts/tComment'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'leafgarland/typescript-vim'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'easymotion/vim-easymotion'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'noprompt/vim-yardoc'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'skalnik/vim-vroom'
-  Plugin 'junegunn/goyo.vim'
-  Plugin 'morhetz/gruvbox'
-  Plugin 'jdkanani/vim-material-theme'
-  Plugin 'ajh17/Spacegray.vim'
-  Plugin 'juanedi/predawn.vim'
-  Plugin 'AlessandroYorba/Sierra'
-  Plugin 'AlessandroYorba/Alduin'
-  Plugin 'kocakosm/hilal'
-  Plugin 'marcopaganini/termschool-vim-theme'
-  Plugin 'mkarmona/colorsbox'
-  Plugin 'tlhr/anderson.vim'
-  Plugin 'xiaody/thornbird.vim'
-  Plugin 'blackgate/tropikos-vim-theme'
-  Plugin 'kristijanhusak/vim-hybrid-material'
-  Plugin 'justincampbell/vim-railscasts'
-  Plugin 'w0ng/vim-hybrid'
-  Plugin 'zandrmartin/vim-distill'
-
-call vundle#end()
-filetype plugin indent on
-
+" CtrlP settings
+let g:ctrlp_use_caching  = 0
+let g:ag_working_path_mode="r"
 
 " Indent line character
 let g:indentLine_char = '|'
@@ -172,6 +188,8 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:spacegray_italicize_comments = 1
+let g:two_firewatch_italics = 1
+let g:ghostbuster_italics   = 1
 " NERDTree settings.
 let g:NERDTreeShowHidden    = 1
 let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
@@ -191,7 +209,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
-let g:airline_theme           = 'bubblegum'
+let g:airline_theme           = 'twofirewatch'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -229,9 +247,8 @@ set background=dark
 
 filetype plugin indent on
 syntax on
-"color happy_hacking
-" color crystin
-color hybrid
+
+color two-firewatch
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
@@ -305,7 +322,7 @@ map <F8> :Gblame<space>w<CR><Esc>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
-nnoremap \ :Ag<SPACE>
+nnoremap \ :Ack<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
@@ -313,6 +330,13 @@ noremap <Up>    <NOP>
 noremap <Down>  <NOP>
 noremap <Left>  <NOP>
 noremap <Right> <NOP>
+
+" Easy align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ============================================================================
 " NVIM SPECIFICS
@@ -338,12 +362,6 @@ if has('unix')
     " let g:python3_host_prog='/usr/local/bin/python3'
   endif
 endif
-
-" Open NERDTree in new tabs and windows if no command line args set
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ============================================================================
 " HOST SPECIFIC CONFIGURATION
