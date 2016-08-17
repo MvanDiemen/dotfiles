@@ -1,4 +1,4 @@
 function vim
   # env TRUE_COLOR=1 nvim $argv
-  mvim -v $argv
+  gvim -v $argv
 end

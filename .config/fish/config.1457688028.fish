@@ -1,10 +1,7 @@
-set -x CHRUBY_ROOT /usr/local
+set -x CHRUBY_ROOT /usr
 set -x TERM 'xterm-256color'
-set -x EDITOR 'nvim'
-set -x GIT_EDITOR 'nvim'
-set -x PATH $PATH $HOME/bin
-set -x PATH $PATH /usr/bin/python
-set -x PATH $PATH /usr/bin/python3
+set -x EDITOR 'gvim -v'
+set -x GIT_EDITOR 'gvim -v'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 
 set fish_greeting
