@@ -73,6 +73,7 @@ terminator:
 
 i3:
 	@ln -s ${PWD}/.config/i3 ${HOME}/.config/
+	@ln -s ${PWD}/.i3status.conf ${HOME}/
 
 brew:
 	@ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
