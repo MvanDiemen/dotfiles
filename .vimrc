@@ -49,6 +49,8 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
+Bundle 'slim-template/vim-slim'
 Bundle 'yggdroot/indentline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -57,7 +59,6 @@ Bundle 'powerline/powerline'
 Bundle 'vim-scripts/tcomment'
 Bundle 'tomtom/tlib_vim'
 Bundle 'leafgarland/typescript-vim'
-Bundle 'sirver/ultisnips'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'easymotion/vim-easymotion'
@@ -67,19 +68,26 @@ Bundle 'noprompt/vim-yardoc'
 Bundle 'marcweber/vim-addon-mw-utils'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'chrisbra/Colorizer'
+Bundle 'godlygeek/tabular'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'majutsushi/tagbar'
+
+if !has('nvim')
+  Bundle 'sirver/ultisnips'
+endif
 
 " ================================
 " BUNDLE COLORSCHEMES
 Bundle 'w0ng/vim-hybrid'
 Bundle 'yorickpeterse/happy_hacking.vim'
-Bundle 'easysid/mod8.vim'
 Bundle 'rakr/vim-two-firewatch'
 Bundle 'aereal/vim-colors-japanesque'
 Bundle 'tyrannicaltoucan/vim-deep-space'
-Bundle 'lifepillar/vim-wwdc16-theme'
 Bundle 'MvanDiemen/ghostbuster'
 Bundle 'ronny/birds-of-paradise.vim'
-Bundle 'raphamorim/lucario'
+Bundle 'NLKNguyen/papercolor-theme'
+Bundle 'juanpabloaj/vim-pixelmuerto'
+Bundle 'zacanger/angr.vim'
 
 if needsToInstallBundles == 1
   echo "\nInstalling Bundles, please ignore key map error messages\n"
@@ -88,6 +96,7 @@ if needsToInstallBundles == 1
 endif
 
 filetype plugin indent on
+syntax on
 
 " ============================================================================
 " GENERAL SETTINGS
@@ -102,7 +111,6 @@ set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
 set backupskip=/tmp/*
-set guifont=Hack\ 9
 set clipboard=unnamed
 set pastetoggle=<F2>
 set mouse=a
@@ -113,9 +121,12 @@ set ttyfast
 set hidden
 set history=100
 set hlsearch
+set termguicolors
 
-if has("gui_running")
-  set lines=999 columns=999
+if system("xrandr --listactivemonitors") =~ 'eDP'
+  set guifont=Hack\ 12
+else
+  set guifont=Hack\ 9
 endif
 
 " Do not show GUI Messages
@@ -153,7 +164,7 @@ let g:ag_working_path_mode="r"
 " Indent line character
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
-let g:indentLine_showFirstIndentLevel = 0
+let g:indentLine_showFirstIndentLevel = 1
 
 " Syntastic settings.
 let g:syntastic_auto_loc_list = 2
@@ -238,21 +249,18 @@ let g:gitgutter_sign_column_always = 1
 " Settings related to configuring the syntax features of Vim such as the text
 " width, what theme to use and so on.
 "
-set textwidth=80
+set textwidth=120
 set nowrap
 set number
 set showmatch
 set synmaxcol=500
 set background=dark
 
-filetype plugin indent on
-syntax on
-
 color two-firewatch
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
-  set colorcolumn=80
+  set colorcolumn=120
 endif
 
 " Indentation settings
@@ -337,6 +345,10 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+if has('gui')
+  set lines=72 columns=273
+endif
 
 " ============================================================================
 " NVIM SPECIFICS
