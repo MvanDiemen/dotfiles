@@ -17,6 +17,7 @@ help:
 	@echo "gem          # Sets gem doc settings"
 	@echo "awareness    # Installs Awareness in the Application folder"
 	@echo "ruby-version # Installs the version from the ruby-version file"
+	@echo "xresources   # Setup Xresources"
 
 all:
 	@make vim
@@ -30,6 +31,7 @@ all:
 	@make keybindings
 	@make gem
 	@make ruby-version
+	@make xresources
 
 vim:
 	@git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
@@ -90,3 +92,6 @@ ruby-version:
 	for file in ${HOME}/.ruby-version; do \
 		@ruby-install "$${file}"; \
 	done ;
+
+xresources:
+	@ln -s ${PWD}/.Xresources ${HOME}/.Xresources
