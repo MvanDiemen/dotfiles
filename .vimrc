@@ -43,34 +43,32 @@ Bundle 'gmarik/vundle'
 
 " Ag is deprecated but I still prefer it to Ack.
 Bundle 'mileszs/ack.vim'
-Bundle 'ctrlpvim/ctrlp.vim'
+" Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'raimondi/delimitmate'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
-Bundle 'slim-template/vim-slim'
+" Bundle 'slim-template/vim-slim'
 Bundle 'yggdroot/indentline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'xuyuanp/nerdtree-git-plugin'
+" Bundle 'xuyuanp/nerdtree-git-plugin'
 Bundle 'powerline/powerline'
 Bundle 'vim-scripts/tcomment'
-Bundle 'tomtom/tlib_vim'
-Bundle 'leafgarland/typescript-vim'
+" Bundle 'tomtom/tlib_vim'
+" Bundle 'leafgarland/typescript-vim'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-Bundle 'easymotion/vim-easymotion'
+" Bundle 'easymotion/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'pangloss/vim-javascript'
 Bundle 'noprompt/vim-yardoc'
-Bundle 'marcweber/vim-addon-mw-utils'
+" Bundle 'marcweber/vim-addon-mw-utils'
 Bundle 'junegunn/vim-easy-align'
-Bundle 'chrisbra/Colorizer'
 Bundle 'godlygeek/tabular'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'majutsushi/tagbar'
+Bundle 'junegunn/fzf'
 
 if !has('nvim')
   Bundle 'sirver/ultisnips'
@@ -81,13 +79,9 @@ endif
 Bundle 'w0ng/vim-hybrid'
 Bundle 'yorickpeterse/happy_hacking.vim'
 Bundle 'rakr/vim-two-firewatch'
-Bundle 'aereal/vim-colors-japanesque'
-Bundle 'tyrannicaltoucan/vim-deep-space'
 Bundle 'MvanDiemen/ghostbuster'
-Bundle 'ronny/birds-of-paradise.vim'
-Bundle 'NLKNguyen/papercolor-theme'
-Bundle 'juanpabloaj/vim-pixelmuerto'
-Bundle 'zacanger/angr.vim'
+Bundle 'rakr/vim-one'
+Bundle 'liuchengxu/space-vim-dark'
 
 if needsToInstallBundles == 1
   echo "\nInstalling Bundles, please ignore key map error messages\n"
@@ -137,6 +131,9 @@ set guioptions=aemc
 set printoptions=number:n
 set printoptions=header:0
 
+" fzf settings
+set rtp+=/usr/bin/fzf
+
 let mapleader      = ','
 let maplocalleader = '\'
 
@@ -154,11 +151,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   let g:ackprg="ag --vimgrep"
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --vimgrep --smart-case ""'
+
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 " CtrlP settings
-let g:ctrlp_use_caching  = 0
 let g:ag_working_path_mode="r"
 
 " Indent line character
@@ -256,7 +253,8 @@ set showmatch
 set synmaxcol=500
 set background=dark
 
-color two-firewatch
+" color two-firewatch
+color space-vim-dark
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
@@ -333,7 +331,6 @@ nmap [h <Plug>GitGutterPrevHunk
 nnoremap \ :Ack<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
-
 noremap <Up>    <NOP>
 noremap <Down>  <NOP>
 noremap <Left>  <NOP>
@@ -346,21 +343,19 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-if has('gui')
-  set lines=72 columns=273
-endif
-
 " ============================================================================
 " NVIM SPECIFICS
 "
 if !has('nvim')
   set ttymouse=xterm2
+  nnoremap <silent> <C-o> :FZF<CR>
 endif
 
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+  nnoremap <silent> <C-o> :FZF<CR>
   tnoremap <Esc> <C-\><C-n>
 
   runtime! python_setup.vim
