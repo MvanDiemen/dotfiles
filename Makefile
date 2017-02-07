@@ -40,7 +40,7 @@ vim:
 	@ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	@ln -s ${PWD}/.gvimrc ${HOME}/.gvimrc
 	@ln -s ${PWD}/.vimrc.after ${HOME}/.vimrc.after
-	@ln -s ${PWD}/.vimrc ${HOME}/.config/init.vim
+	@ln -s ${PWD}/.vimrc ${HOME}/.config/nvim/init.vim
 
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
