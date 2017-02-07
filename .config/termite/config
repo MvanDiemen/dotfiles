@@ -3,14 +3,14 @@ resize_grip = false
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
-visible_bell = false
-mouse_autohide = false
+visible_bell = true
+mouse_autohide = true
 allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
 font = Hack 9
-scrollback_lines = 1000
+scrollback_lines = 99999999
 search_wrap = true
 #icon_name = terminal
 #geometry = 640x480
@@ -40,7 +40,9 @@ cursor_shape = block
 foreground      = #abb2bf
 foreground_bold = #abb2bf
 cursor          = #abb2bf
-background      = #282c34
+
+background      = rgba(40, 44, 52, 0.9)
+; background      = #282c34
 
 # black
 color0  = #55606d
