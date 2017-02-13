@@ -61,18 +61,13 @@ Bundle 'vim-scripts/tcomment'
 " Bundle 'leafgarland/typescript-vim'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-" Bundle 'easymotion/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'pangloss/vim-javascript'
 Bundle 'noprompt/vim-yardoc'
-" Bundle 'marcweber/vim-addon-mw-utils'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'godlygeek/tabular'
-Bundle 'junegunn/fzf'
-
-if !has('nvim')
-  Bundle 'sirver/ultisnips'
-endif
+Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Bundle 'junegunn/fzf.vim'
 
 " ================================
 " BUNDLE COLORSCHEMES
@@ -82,6 +77,7 @@ Bundle 'rakr/vim-two-firewatch'
 Bundle 'MvanDiemen/ghostbuster'
 Bundle 'rakr/vim-one'
 Bundle 'liuchengxu/space-vim-dark'
+Bundle 'lifepillar/vim-solarized8'
 
 if needsToInstallBundles == 1
   echo "\nInstalling Bundles, please ignore key map error messages\n"
@@ -131,9 +127,6 @@ set guioptions=aemc
 set printoptions=number:n
 set printoptions=header:0
 
-" fzf settings
-set rtp+=/usr/bin/fzf
-
 let mapleader      = ','
 let maplocalleader = '\'
 
@@ -147,16 +140,17 @@ set nocursorline
 let loaded_matchparen = 1
 
 " Use ag for the :grep command as well as for Ctrlp
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+if executable('rg')
+  set grepprg=rg\ --nogroup\ --nocolor
 
-  let g:ackprg="ag --vimgrep"
+  let g:ackprg="rg --vimgrep"
 
-  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " let g:ctrlp_user_command = ':FZF ""'
+  nnoremap <c-p> :FZF<cr>
 endif
 
 " CtrlP settings
-let g:ag_working_path_mode="r"
+" let g:ag_working_path_mode="r"
 
 " Indent line character
 let g:indentLine_char = '|'
@@ -192,12 +186,12 @@ let g:syntastic_mode_map = {
   \ 'mode': 'passive',
   \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust', 'ruby']}
 
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 let g:spacegray_italicize_comments = 1
 let g:two_firewatch_italics = 1
 let g:ghostbuster_italics   = 1
+let g:solarized_termtrans   = 1
+let g:solarized_term_italics = 1
+
 " NERDTree settings.
 let g:NERDTreeShowHidden    = 1
 let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
@@ -246,19 +240,20 @@ let g:gitgutter_sign_column_always = 1
 " Settings related to configuring the syntax features of Vim such as the text
 " width, what theme to use and so on.
 "
-set textwidth=120
+set textwidth=180
 set nowrap
 set number
 set showmatch
-set synmaxcol=500
+set synmaxcol=300
 set background=dark
 
 " color two-firewatch
-color space-vim-dark
+" color space-vim-dark
+color crystin
 
 " colorcolumn doesn't work on slightly older versions of Vim.
 if version >= 703
-  set colorcolumn=120
+  set colorcolumn=180
 endif
 
 " Indentation settings
@@ -348,14 +343,14 @@ nmap ga <Plug>(EasyAlign)
 "
 if !has('nvim')
   set ttymouse=xterm2
-  nnoremap <silent> <C-o> :FZF<CR>
+  nnoremap <silent> <C-p> :FZF<CR>
 endif
 
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-  nnoremap <silent> <C-o> :FZF<CR>
+  nnoremap <silent> <C-p> :FZF<CR>
   tnoremap <Esc> <C-\><C-n>
 
   runtime! python_setup.vim

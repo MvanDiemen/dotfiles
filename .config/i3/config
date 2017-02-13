@@ -24,7 +24,8 @@ gaps inner 5
 # COLOR VARIABLES #
 ###################
 
-set $bg-color            #282c34
+set $bg-color            #4b5362
+#282c34
 set $bg-color-2          #636d83
 set $inactive-bg-color   #282c34
 set $text-color          #d6e9ff

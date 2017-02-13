@@ -13,7 +13,10 @@ set -x EDITOR 'gvim -v'
 set -x GIT_EDITOR 'gvim -v'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 
-set fish_greeting
+set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -U FZF_LEGACY_KEYBINDINGS 0
+
+set fish_greeting 0
 
 set fish_color_command blue
 set fish_color_param 00AACC
