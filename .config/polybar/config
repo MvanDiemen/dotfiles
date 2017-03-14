@@ -82,7 +82,7 @@ font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=12;0
 
-modules-left = cpu filesystem-slash 
+modules-left = cpu filesystem-slash
 modules-center = i3
 modules-right = volume wlan battery date powermenu
 ; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
@@ -103,8 +103,7 @@ tray-transparent = true
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-[bar/bottom]
-bottom = true
+[bar/top4k]
 width = 100%
 height = 40
 offset-x = 0
@@ -116,7 +115,7 @@ foreground = ${colors.foreground}
 
 overline-size = 0
 overline-color = #f00
-underline-size = 0
+underline-size = 2
 underline-color = #00f
 
 border-bottom-size = 0
@@ -128,17 +127,32 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=12;0
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=14;0
+font-0 = hack:pixelsize=16;1
+font-1 = unifont:size=12:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=16;0
+font-3 = FontAwesome:pixelsize=20;0
 
-modules-left = mpd
-modules-center = networkspeedup networkspeeddown
-modules-right = temperature filesystem-slash cpu memory
+modules-left = cpu filesystem-slash
+modules-center = i3
+modules-right = volume wlan battery date powermenu
+; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
 
-tray-position =
-tray-padding = 2
+tray-position = left
+tray-padding = 0
+tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
 
 [module/xwindow]
 type = internal/xwindow
