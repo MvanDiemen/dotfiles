@@ -66,7 +66,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'godlygeek/tabular'
-Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Bundle 'junegunn/fzf.vim'
 
 " ================================
@@ -76,7 +76,7 @@ Bundle 'yorickpeterse/happy_hacking.vim'
 Bundle 'rakr/vim-two-firewatch'
 Bundle 'MvanDiemen/ghostbuster'
 Bundle 'rakr/vim-one'
-Bundle 'liuchengxu/space-vim-dark'
+" Bundle 'liuchengxu/space-vim-dark'
 Bundle 'lifepillar/vim-solarized8'
 
 if needsToInstallBundles == 1
