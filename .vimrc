@@ -66,8 +66,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'godlygeek/tabular'
-" Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Bundle 'junegunn/fzf.vim'
+Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Bundle 'junegunn/fzf.vim'
 
 " ================================
 " BUNDLE COLORSCHEMES
