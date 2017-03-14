@@ -115,6 +115,8 @@ set termguicolors
 
 if system("xrandr --listactivemonitors") =~ 'eDP'
   set guifont=Hack\ 12
+elseif system("xrandr --listactivemonitors") =~ 'DP-1'
+  set guifont=Hack\ 16
 else
   set guifont=Hack\ 9
 endif
