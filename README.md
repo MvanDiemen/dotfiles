@@ -4,7 +4,7 @@
 * There's a Makefile for setup **(not complete)**
 
 ### What do we use?
-* I've chosen for [i3](i3wm.org) as my tiling window manager.
+* I've chosen for [i3](https://i3wm.org) as my tiling window manager.
 * [TWMN](https://github.com/sboli/twmn) for notifications.
 * [Terminator](https://gnometerminator.blogspot.nl) as terminal because it has the capabilities of setting up multiple profiles.
 * [Fish Shell](https://fishshell.com) instead of bash.
