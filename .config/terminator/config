@@ -34,255 +34,33 @@
       profile = default
       type = Terminal
       uuid = 7778f9b7-034d-46a3-82c1-9acae8fd279c
-  [[homework]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = 0592f737-3edf-4758-b015-fa6857354098
-      last_active_window = True
-      maximised = True
-      order = 0
-      parent = ""
-      position = 0:32
-      size = 3840, 2103
-      title = Work
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 822
-      ratio = 0.214713541667
-      type = HPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 1049
-      ratio = 0.5
-      type = VPaned
-    [[[child5]]]
-      order = 1
-      parent = child1
-      position = 2065
-      ratio = 0.6852833941
-      type = HPaned
-    [[[child6]]]
-      order = 0
-      parent = child5
-      position = 748
-      ratio = 0.356871136472
-      type = VPaned
-    [[[child9]]]
-      order = 1
-      parent = child5
-      position = 1049
-      ratio = 0.5
-      type = VPaned
-    [[[terminal10]]]
-      directory = /home/michael/repos/nfr
-      order = 0
-      parent = child9
-      profile = default
-      type = Terminal
-      uuid = 5ac10d3e-b108-4a36-bac1-10ec66e1c24a
-    [[[terminal11]]]
-      directory = /home/michael/repos/nfr
-      order = 1
-      parent = child9
-      profile = default
-      type = Terminal
-      uuid = 8e3d98d6-ef96-41c8-ab63-ef4ee765e593
-    [[[terminal3]]]
-      directory = /home/michael/repos/nfr
-      order = 0
-      parent = child2
-      profile = default
-      type = Terminal
-      uuid = 98c3e807-4507-48aa-adb3-95b849e6e064
-    [[[terminal4]]]
-      directory = /home/michael/repos/nfr
-      order = 1
-      parent = child2
-      profile = default
-      type = Terminal
-      uuid = 13687cca-ef40-41be-9447-44b8ca7080ff
-    [[[terminal7]]]
-      directory = /home/michael/repos/nfr
-      order = 0
-      parent = child6
-      profile = default
-      type = Terminal
-      uuid = 66a8690c-ba49-4b96-abdb-79243a349334
-    [[[terminal8]]]
-      directory = /home/michael/repos/nfr
-      order = 1
-      parent = child6
-      profile = default
-      type = Terminal
-      uuid = 0592f737-3edf-4758-b015-fa6857354098
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#292520"
-    cursor_color = "#f6f7ec"
-    font = hack 9
-    foreground_color = "#e5c7a9"
-    login_shell = True
-    palette = "#121418:#c94234:#85c54c:#f5ae2e:#1398b9:#d0633d:#509552:#e5c6aa:#675f54:#ff645a:#98e036:#e0d561:#5fdaff:#ff9269:#84f088:#f6f7ec"
-    scroll_on_output = True
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[Arthur]]
-    background_color = "#1c1c1c"
+    palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
+    foreground_color    = "#abb2bf"
+    background_color    = "#282c34"
+    cursor_color        = "#abb2bf"
+    background_type     = transparent
     background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#e2bbef"
-    font = Hack 10
-    foreground_color = "#ddeedd"
-    login_shell = True
-    palette = "#3d352a:#cd5c5c:#86af80:#e8ae5b:#6495ed:#deb887:#b0c4de:#bbaa99:#554444:#cc5533:#88aa22:#ffa75d:#87ceeb:#996600:#b0c4de:#ddccbb"
+    use_system_font     = False
+    font                = Hack 9
+    login_shell         = True
+    scroll_on_output    = True
     scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Ashes]]
-    background_color = "#1c2023"
-    cursor_color = "#c7ccd1"
-    font = Hack 10
-    foreground_color = "#c7ccd1"
-    login_shell = True
-    palette = "#1c2023:#c7ae95:#95c7ae:#aec795:#ae95c7:#c795ae:#95aec7:#c7ccd1:#747c84:#c7ae95:#95c7ae:#aec795:#ae95c7:#c795ae:#95aec7:#f3f4f5"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[BirdsOfParadise]]
-    background_color = "#2a1f1d"
+    scrollbar_position  = hidden
+    show_titlebar       = False
+  [[4ksetup]]
+    palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
+    foreground_color    = "#abb2bf"
+    background_color    = "#282c34"
+    cursor_color        = "#abb2bf"
+    background_type     = transparent
     background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#573d26"
-    font = Hack 10
-    foreground_color = "#e0dbb7"
-    login_shell = True
-    palette = "#573d26:#be2d26:#6ba18a:#e99d2a:#5a86ad:#ac80a6:#74a6ad:#e0dbb7:#9b6c4a:#e84627:#95d8ba:#d0d150:#b8d3ed:#d19ecb:#93cfd7:#fff9d5"
+    use_system_font     = False
+    login_shell         = True
+    scroll_on_output    = True
     scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Blazer]]
-    background_color = "#212121"
-    cursor_color = "#20bbfc"
-    font = hack 10
-    foreground_color = "#f1f1f1"
-    login_shell = True
-    palette = "#212121:#c30771:#10a778:#a89c14:#008ec4:#523c79:#20a5ba:#d9d9d9:#424242:#fb007a:#5fd7af:#f3e430:#20bbfc:#6855de:#4fb8cc:#f1f1f1"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Chalk]]
-    background_color = "#2b2d2e"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#708284"
-    font = Hack 10
-    foreground_color = "#d2d8d9"
-    login_shell = True
-    palette = "#7d8b8f:#b23a52:#789b6a:#b9ac4a:#2a7fac:#bd4f5a:#44a799:#d2d8d9:#888888:#f24840:#80c470:#ffeb62:#4196ff:#fc5275:#53cdbd:#d2d8d9"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Earthsong]]
-    background_color = "#292520"
-    cursor_color = "#f6f7ec"
-    font = hack 10
-    foreground_color = "#e5c7a9"
-    login_shell = True
-    palette = "#121418:#c94234:#85c54c:#f5ae2e:#1398b9:#d0633d:#509552:#e5c6aa:#675f54:#ff645a:#98e036:#e0d561:#5fdaff:#ff9269:#84f088:#f6f7ec"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Elemental]]
-    background_color = "#22211d"
-    cursor_color = "#facb80"
-    font = hack 10
-    foreground_color = "#807a74"
-    login_shell = True
-    palette = "#3c3c30:#98290f:#479a43:#7f7111:#497f7d:#7f4e2f:#387f58:#807974:#555445:#e0502a:#61e070:#d69927:#79d9d9:#cd7c54:#59d599:#fff1e9"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Fideloper]]
-    background_color = "#292f33"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#d4605a"
-    font = Hack 10
-    foreground_color = "#dbdae0"
-    login_shell = True
-    palette = "#292f33:#cb1e2d:#edb8ac:#b7ab9b:#2e78c2:#c0236f:#309186:#eae3ce:#092028:#d4605a:#d4605a:#a86671:#7c85c4:#5c5db2:#819090:#fcf4df"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Japanesque]]
-    background_color = "#1e1e1e"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#edcf4f"
-    font = Hack 10
-    foreground_color = "#f7f6ec"
-    login_shell = True
-    palette = "#343935:#cf3f61:#7bb75b:#e9b32a:#4c9ad4:#a57fc4:#389aad:#fafaf6:#595b59:#d18fa6:#767f2c:#78592f:#135979:#604291:#76bbca:#b2b5ae"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Novel]]
-    background_color = "#dfdbc3"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#73635a"
-    font = Hack 10
-    foreground_color = "#3b2322"
-    login_shell = True
-    palette = "#000000:#cc0000:#009600:#d06b00:#0000cc:#cc00cc:#0087cc:#cccccc:#808080:#cc0000:#009600:#d06b00:#0000cc:#cc00cc:#0087cc:#ffffff"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[PencilLight]]
-    background_color = "#f1f1f1"
-    cursor_color = "#20bbfc"
-    font = hack 10
-    foreground_color = "#424242"
-    login_shell = True
-    palette = "#212121:#c30771:#10a778:#a89c14:#008ec4:#523c79:#20a5ba:#d9d9d9:#424242:#fb007a:#5fd7af:#f3e430:#20bbfc:#6855de:#4fb8cc:#f1f1f1"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Solarized Dark]]
-    background_color = "#001e27"
-    cursor_color = "#708284"
-    font = hack 10
-    foreground_color = "#708284"
-    login_shell = True
-    palette = "#002831:#d11c24:#738a05:#a57706:#2176c7:#c61c6f:#259286:#eae3cb:#001e27:#bd3613:#475b62:#536870:#708284:#5956ba:#819090:#fcf4dc"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Solarized Light]]
-    background_color = "#fcf4dc"
-    cursor_color = "#536870"
-    font = hack 10
-    foreground_color = "#536870"
-    login_shell = True
-    palette = "#002831:#d11c24:#738a05:#a57706:#2176c7:#c61c6f:#259286:#eae3cb:#001e27:#bd3613:#475b62:#536870:#708284:#5956ba:#819090:#fcf4dc"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
-  [[Teerb]]
-    background_color = "#262626"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#e4c9af"
-    font = hack 10
-    foreground_color = "#d0d0d0"
-    login_shell = True
-    palette = "#1c1c1c:#d68686:#aed686:#d7af87:#86aed6:#d6aed6:#8adbb4:#d0d0d0:#1c1c1c:#d68686:#aed686:#e4c9af:#86aed6:#d6aed6:#b1e7dd:#efefef"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    use_system_font = False
+    scrollbar_position  = hidden
+    show_titlebar       = False
+    font                = Hack 16
