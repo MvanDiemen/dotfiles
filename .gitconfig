@@ -11,9 +11,9 @@
 [core]
   autocrlf     = input
   filemode     = false
-  excludesfile = /home/arch/.gitignore_global
+  excludesfile = ~/.gitignore_global
   ignorecase   = false
-  editor       = gvim -f
+  editor       = nvim
 
 [color]
   ui = true
