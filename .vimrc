@@ -41,24 +41,19 @@ call vundle#rc()
 " Do these first, because other plugins depend on them
 Bundle 'gmarik/vundle'
 
-" Ag is deprecated but I still prefer it to Ack.
 Bundle 'mileszs/ack.vim'
-" Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'raimondi/delimitmate'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
-" Bundle 'slim-template/vim-slim'
 Bundle 'yggdroot/indentline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-" Bundle 'xuyuanp/nerdtree-git-plugin'
+Bundle 'ngmy/vim-rubocop'
 Bundle 'powerline/powerline'
 Bundle 'vim-scripts/tcomment'
-" Bundle 'tomtom/tlib_vim'
-" Bundle 'leafgarland/typescript-vim'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'airblade/vim-gitgutter'
@@ -67,7 +62,6 @@ Bundle 'noprompt/vim-yardoc'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'godlygeek/tabular'
 Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Bundle 'junegunn/fzf.vim'
 
 " ================================
 " BUNDLE COLORSCHEMES
@@ -76,7 +70,6 @@ Bundle 'yorickpeterse/happy_hacking.vim'
 Bundle 'rakr/vim-two-firewatch'
 Bundle 'MvanDiemen/ghostbuster'
 Bundle 'rakr/vim-one'
-" Bundle 'liuchengxu/space-vim-dark'
 Bundle 'lifepillar/vim-solarized8'
 
 if needsToInstallBundles == 1
@@ -176,7 +169,7 @@ let g:syntastic_java_checkers = []
 let g:syntastic_javascript_checkers = []
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_sh_checkers = ['shellcheck']
 
 let g:syntastic_mode_map = {
