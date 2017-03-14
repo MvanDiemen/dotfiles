@@ -21,6 +21,9 @@ Lastly, the rest of my default applications are: Chromium, Franz (or Slack) and 
 4K.
 
 ## Screenshot
+### 4K
+![4k setup](4kscreenshot.png)
+
 ### (outdated)
 ![setup](screenshot.png)
 
