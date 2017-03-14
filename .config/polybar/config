@@ -23,9 +23,9 @@
 ; set $indicator           #c8ae9d
 
 [colors]
-background = #DD282C34
-background-alt = #DD636D83
-foreground = #DDD6E9FF
+background = #00282C34
+background-alt = #44636D83
+foreground = #DD282C34
 foreground-alt = #DD6E88A6
 primary = #DDFFB52A
 secondary = #DDE60053
@@ -88,8 +88,8 @@ modules-right = volume wlan battery date powermenu
 ; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
 
 tray-position = left
-tray-padding = 4
-; tray-transparent = true
+tray-padding = 0
+tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
