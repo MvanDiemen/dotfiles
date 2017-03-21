@@ -106,6 +106,9 @@ set history=100
 set hlsearch
 set termguicolors
 
+" Hackityhacky no swapfile warnings
+set shortmess+=A
+
 if system("xrandr --listactivemonitors") =~ 'eDP'
   set guifont=Hack\ 12
 elseif system("xrandr --listactivemonitors") =~ 'DP-1'
@@ -241,15 +244,11 @@ set number
 set showmatch
 set synmaxcol=300
 set background=dark
+set colorcolumn=80
+set colorcolumn+=180
 
 " color two-firewatch
-" color space-vim-dark
 color crystin
-
-" colorcolumn doesn't work on slightly older versions of Vim.
-if version >= 703
-  set colorcolumn=180
-endif
 
 " Indentation settings
 set shiftwidth=2
