@@ -25,7 +25,8 @@
 [colors]
 background = #00282C34
 background-alt = #44636D83
-foreground = #DD282C34
+; foreground = #DD282C34
+foreground = #DD1C1C1C
 foreground-alt = #DD6E88A6
 primary = #DDFFB52A
 secondary = #DDE60053
@@ -82,7 +83,7 @@ font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=12;0
 
-modules-left = cpu filesystem-slash
+modules-left = cpu filesystem-slash xwindow
 modules-center = i3
 modules-right = volume wlan battery date powermenu
 ; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
@@ -132,7 +133,7 @@ font-1 = unifont:size=12:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=16;0
 font-3 = FontAwesome:pixelsize=20;0
 
-modules-left = cpu filesystem-slash
+modules-left = cpu filesystem-slash xwindow
 modules-center = i3
 modules-right = volume wlan battery date powermenu
 ; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
@@ -156,7 +157,7 @@ tray-transparent = true
 
 [module/xwindow]
 type = internal/xwindow
-label = "   %{F#5b5b5b}%{F-} %title:0:70:...%"
+label = "   %{F#7c7c7c}>%{F-} %title:0:70:...%"
 
 [module/xkeyboard]
 type = internal/xkeyboard
