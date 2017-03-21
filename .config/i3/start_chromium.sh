@@ -1,6 +1,5 @@
 if xrandr --query | grep "HDMI-1 connected"; then
-  terminator
+  chromium
 else
-  terminator --profile 4ksetup
+  chromium --force-device-scale-factor=1.5
 fi
-

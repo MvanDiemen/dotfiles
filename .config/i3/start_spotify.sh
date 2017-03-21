@@ -1,6 +1,5 @@
 if xrandr --query | grep "HDMI-1 connected"; then
-  terminator
+  spotify
 else
-  terminator --profile 4ksetup
+  spotify --force-device-scale-factor=1.5
 fi
-

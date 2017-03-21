@@ -260,8 +260,8 @@ exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id redis-server
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec franz-bin
-exec chromium
-exec spotify
-exec termite
+exec ~/.config/i3/start_franz.sh
+exec ~/.config/i3/start_chromium.sh
+exec ~/.config/i3/start_spotify.sh
+exec ~/.config/i3/start_terminal.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/ultra_flat_numa_thai_wallpaper_1_by_charlie_henson-d8jofpw.png

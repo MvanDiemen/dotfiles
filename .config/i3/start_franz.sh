@@ -1,6 +1,5 @@
 if xrandr --query | grep "HDMI-1 connected"; then
-  terminator
+  franz-bin
 else
-  terminator --profile 4ksetup
+  franz-bin --force-device-scale-factor=1.5
 fi
-
