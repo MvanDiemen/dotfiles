@@ -90,6 +90,7 @@ syntax on
 "
 
 set shell=sh
+set background=dark
 set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
@@ -105,6 +106,7 @@ set hidden
 set history=100
 set hlsearch
 set termguicolors
+
 
 " Hackityhacky no swapfile warnings
 set shortmess+=A
@@ -324,6 +326,11 @@ noremap <Up>    <NOP>
 noremap <Down>  <NOP>
 noremap <Left>  <NOP>
 noremap <Right> <NOP>
+
+nnoremap :Wq :wq
+nnoremap :WQ :wq
+nnoremap :W :w
+nnoremap :Q :q
 
 " Easy align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
