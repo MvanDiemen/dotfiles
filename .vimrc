@@ -47,7 +47,9 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'jremmen/vim-ripgrep'
 Bundle 'tpope/vim-rails'
+Bundle 'janko-m/vim-test'
 Bundle 'yggdroot/indentline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -71,6 +73,9 @@ Bundle 'rakr/vim-two-firewatch'
 Bundle 'MvanDiemen/ghostbuster'
 Bundle 'rakr/vim-one'
 Bundle 'lifepillar/vim-solarized8'
+Bundle 'tyrannicaltoucan/vim-deep-space'
+Bundle 'tyrannicaltoucan/vim-quantum'
+Bundle 'liuchengxu/space-vim-dark'
 
 if needsToInstallBundles == 1
   echo "\nInstalling Bundles, please ignore key map error messages\n"
@@ -95,7 +100,7 @@ set nocompatible
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
 set backupskip=/tmp/*
-set clipboard=unnamed
+set clipboard=unnamedplus
 set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
@@ -143,7 +148,7 @@ let loaded_matchparen = 1
 if executable('rg')
   set grepprg=rg\ --nogroup\ --nocolor
 
-  let g:ackprg="rg --vimgrep"
+  let g:ackprg='rg --vimgrep --no-heading'
 
   " let g:ctrlp_user_command = ':FZF ""'
   nnoremap <c-p> :FZF<cr>
@@ -188,6 +193,7 @@ let g:syntastic_mode_map = {
 
 let g:spacegray_italicize_comments = 1
 let g:two_firewatch_italics = 1
+let g:deepspace_italics     = 1
 let g:ghostbuster_italics   = 1
 let g:solarized_termtrans   = 1
 let g:solarized_term_italics = 1
@@ -249,8 +255,8 @@ set background=dark
 set colorcolumn=80
 set colorcolumn+=180
 
-" color two-firewatch
-color crystin
+color two-firewatch
+" color crystin
 
 " Indentation settings
 set shiftwidth=2
@@ -319,7 +325,7 @@ map <F8> :Gblame<space>w<CR><Esc>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
-nnoremap \ :Ack<SPACE>
+nnoremap \ :Rg<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 noremap <Up>    <NOP>
