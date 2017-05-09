@@ -134,6 +134,18 @@ set $workspace8 "8: ?"
 set $workspace9 "9: "
 set $workspace10 "10: "
 
+# assign workspaces to screens
+workspace $workspace1 output HDMI-2
+workspace $workspace2 output HDMI-2
+workspace $workspace3 output HDMI-2
+workspace $workspace4 output HDMI-2
+workspace $workspace5 output HDMI-2
+workspace $workspace6 output HDMI-2
+workspace $workspace7 output HDMI-2
+workspace $workspace8 output HDMI-2
+workspace $workspace9 output HDMI-2
+workspace $workspace10 output HDMI-2
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -164,10 +176,11 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Terminator"]  $workspace1
 assign [class="Termite"]     $workspace1
-assign [class="Gvim"]        $workspace2
+# assign [class="Gvim"]        $workspace2
 assign [class="Chromium"]    $workspace3
 assign [class="Firefox"]     $workspace3
 assign [class="Franz"]       $workspace4
+assign [class="Slack"]       $workspace4
 assign [class="xfreerdp"]    $workspace5
 assign [class="Nylas"]       $workspace9
 assign [class="Thunderbird"] $workspace9
@@ -261,6 +274,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redis-server
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec ~/.config/i3/start_franz.sh
+exec ~/.config/i3/start_slack.sh
 exec ~/.config/i3/start_chromium.sh
 exec ~/.config/i3/start_spotify.sh
 exec ~/.config/i3/start_terminal.sh
