@@ -39,21 +39,21 @@
   [[default]]
     palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     foreground_color    = "#abb2bf"
-    background_color    = "#282c34"
+    background_color    = "#272E35"
     cursor_color        = "#abb2bf"
     background_type     = transparent
-    background_darkness = 0.9
+    background_darkness = 1.0
     use_system_font     = False
-    font                = Hack 9
     login_shell         = True
     scroll_on_output    = True
     scrollback_infinite = True
     scrollbar_position  = hidden
     show_titlebar       = False
+    font                = Hack 9
   [[4ksetup]]
     palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     foreground_color    = "#abb2bf"
-    background_color    = "#282c34"
+    background_color    = "#272E35"
     cursor_color        = "#abb2bf"
     background_type     = transparent
     background_darkness = 0.9
