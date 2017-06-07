@@ -58,7 +58,7 @@ bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+space exec rofi -show combi
 
 # Start window switcher through rofi
 bindsym $mod+Shift+d exec rofi -show window
@@ -110,7 +110,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+d focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -199,13 +199,18 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -f DejaVu Sans Book 10 -m 'Logout?' -b 'Yes' 'i3-msg exit'"
 # lock screen
-bindsym $mod+Shift+x exec i3lock-fancy -p -t "Oh no you don't." -- scrot
+bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/windows3.png -p default -d -n
 
-#bindsym XF86MonBrightnessDown exec --no-startup-id "cd /sys/class/backlight/intel_backlight/; cur=$(cat brightness); cur=$((cur-20)) ; if [ $cur -lt 1 ]; then cur=5; fi; echo $cur | sudo tee brightness "
-#bindsym XF86MonBrightnessUp   exec --no-startup-id "cd /sys/class/backlight/intel_backlight/; cur=$(cat brightness); cur=$((cur+20)) ; if [ $cur -gt 1023 ]; then cur=1023; fi; echo $cur | sudo tee brightness "
+bindsym $mod+p exec gnome-screenshot -a
 
-bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 1"
-bindsym XF86MonBrightnessUp   exec --no-startup-id "xbacklight -inc 1"
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 10"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master unmute;  amixer sset Master 7%+ "
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master unmute ; amixer sset Master 7%- "
