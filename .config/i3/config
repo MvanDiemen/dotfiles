@@ -18,7 +18,7 @@ set $mod Mod1
 exec_always ~/.config/i3/i3_edp.sh
 
 # i3 gaps setup
-gaps inner 5
+gaps inner 0
 
 ###################
 # COLOR VARIABLES #
