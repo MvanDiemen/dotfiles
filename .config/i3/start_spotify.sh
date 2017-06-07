@@ -1,5 +1,5 @@
-if xrandr --query | grep "HDMI-1 connected"; then
-  spotify
-else
+if xrandr --query | grep "3840x2160"; then
   spotify --force-device-scale-factor=1.5
+else
+  spotify
 fi

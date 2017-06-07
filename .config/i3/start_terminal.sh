@@ -1,6 +1,6 @@
-if xrandr --query | grep "HDMI-1 connected"; then
-  terminator
-else
+if xrandr --query | grep "3840x2160"; then
   terminator --profile 4ksetup
+else
+  terminator
 fi
 
