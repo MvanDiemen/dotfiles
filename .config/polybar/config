@@ -83,12 +83,12 @@ font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=12;0
 
-modules-left = cpu filesystem-slash xwindow
+modules-left = date battery
 modules-center = i3
-modules-right = volume wlan battery date powermenu
+modules-right = volume cpu memory filesystem-slash battery powermenu
 ; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
 
-tray-position = left
+tray-position = right
 tray-padding = 0
 tray-transparent = true
 ;tray-background = #0063ff
@@ -133,12 +133,11 @@ font-1 = unifont:size=12:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=16;0
 font-3 = FontAwesome:pixelsize=20;0
 
-modules-left = cpu filesystem-slash xwindow
+modules-left = date battery
 modules-center = i3
-modules-right = volume wlan battery date powermenu
-; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+modules-right = volume cpu memory filesystem-slash battery powermenu
 
-tray-position = left
+tray-position = right
 tray-padding = 0
 tray-transparent = true
 ;tray-background = #0063ff
