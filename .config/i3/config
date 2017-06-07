@@ -124,9 +124,9 @@ bindsym $mod+Shift+less move container to output left
 
 # Variables for workspaces
 set $workspace1 "1: "
-set $workspace2 "2: "
+set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: ?"
 set $workspace7 "7: ?"
@@ -176,14 +176,16 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Terminator"]  $workspace1
 assign [class="Termite"]     $workspace1
-# assign [class="Gvim"]        $workspace2
+assign [class="Franz"]       $workspace2
+assign [class="Slack"]       $workspace2
 assign [class="Chromium"]    $workspace3
 assign [class="Firefox"]     $workspace3
-assign [class="Franz"]       $workspace4
-assign [class="Slack"]       $workspace4
 assign [class="xfreerdp"]    $workspace5
 assign [class="Nylas"]       $workspace9
 assign [class="Thunderbird"] $workspace9
+
+assign [class="jetbrains-idea-ce"] $workspace4
+# assign [class="Gvim"]        $workspace4
 
 # worked with Spotify 0.9
 assign [class="Spotify"] $workspace10
