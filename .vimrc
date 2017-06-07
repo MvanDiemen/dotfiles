@@ -36,6 +36,7 @@ if !isdirectory(expand("~/.vim/bundle/vundle"))
 endif
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.fzf
 call vundle#rc()
 
 " Do these first, because other plugins depend on them
@@ -54,16 +55,16 @@ Bundle 'yggdroot/indentline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'ngmy/vim-rubocop'
-Bundle 'powerline/powerline'
+" Bundle 'powerline/powerline'
 Bundle 'vim-scripts/tcomment'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'pangloss/vim-javascript'
 Bundle 'noprompt/vim-yardoc'
-Bundle 'junegunn/vim-easy-align'
+" Bundle 'junegunn/vim-easy-align'
 Bundle 'godlygeek/tabular'
-Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 
 " ================================
 " BUNDLE COLORSCHEMES
@@ -94,9 +95,14 @@ syntax on
 " settings.
 "
 
-set shell=sh
-set background=dark
 set nocompatible
+set lazyredraw
+set ttyfast
+set hidden
+set hlsearch
+set termguicolors
+
+set shell=sh
 set backspace=indent,eol,start
 set omnifunc=syntaxcomplete#Complete
 set backupskip=/tmp/*
@@ -105,23 +111,15 @@ set pastetoggle=<F2>
 set mouse=a
 set tabline=%f
 set guitablabel=%f
-set lazyredraw
-set ttyfast
-set hidden
 set history=100
-set hlsearch
-set termguicolors
-
 
 " Hackityhacky no swapfile warnings
 set shortmess+=A
 
-if system("xrandr --listactivemonitors") =~ 'eDP'
-  set guifont=Hack\ 12
-elseif system("xrandr --listactivemonitors") =~ 'DP-1'
+if system("xrandr --listactivemonitors") =~ 'DP-1'
   set guifont=Hack\ 16
 else
-  set guifont=Hack\ 9
+  set guifont=Hack\ 10
 endif
 
 " Do not show GUI Messages
@@ -129,8 +127,8 @@ endif
 set guioptions=aemc
 
 " Printer settings
-set printoptions=number:n
-set printoptions=header:0
+" set printoptions=number:n
+" set printoptions=header:0
 
 let mapleader      = ','
 let maplocalleader = '\'
@@ -174,9 +172,6 @@ let g:syntastic_warning_symbol = '!'
 let g:syntastic_style_error_symbol = '!'
 let g:syntastic_style_warning_symbol = '!'
 
-let g:syntastic_html_checkers = []
-let g:syntastic_java_checkers = []
-let g:syntastic_javascript_checkers = []
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
@@ -199,9 +194,9 @@ let g:solarized_termtrans   = 1
 let g:solarized_term_italics = 1
 
 " NERDTree settings.
-let g:NERDTreeShowHidden    = 1
-let g:NERDTreeIgnore        = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
-let g:NERDTreeWinSize       = 30
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore     = ['\.pyc$', '\.pyo$', '__pycache__', '\.DS_Store', '\.swo$', '\.swp$', '\.keep']
+let g:NERDTreeWinSize    = 30
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -356,6 +351,7 @@ endif
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  set background=dark
 
   nnoremap <silent> <C-p> :FZF<CR>
   tnoremap <Esc> <C-\><C-n>
@@ -368,7 +364,6 @@ if has('unix')
   let g:python_host_prog='/usr/bin/python'
   if s:uname == "Darwin\n"
     let g:python_host_prog='/usr/bin/python'
-    " let g:python3_host_prog='/usr/local/bin/python3'
   endif
 endif
 
