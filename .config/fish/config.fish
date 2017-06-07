@@ -1,16 +1,10 @@
-# Path to Oh My Fish install.
-set -gx OMF_PATH "/home/michael/.local/share/omf"
-
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
-
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
 
 set -x CHRUBY_ROOT /usr
 set -x TERM 'xterm-256color'
-set -x EDITOR 'gvim -v'
-set -x GIT_EDITOR 'gvim -v'
+set -x EDITOR 'nvim'
+set -x GIT_EDITOR 'nvim'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x ES_HEAP_SIZE '1g'
 
