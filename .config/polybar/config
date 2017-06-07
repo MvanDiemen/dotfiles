@@ -26,8 +26,8 @@
 background = #00282C34
 background-alt = #44636D83
 ; foreground = #DD282C34
-foreground = #DD1C1C1C
-foreground-alt = #DD6E88A6
+foreground = #DDFFFFFF
+foreground-alt = #DDAAAAAA
 primary = #DDFFB52A
 secondary = #DDE60053
 alert = #DDBD2C40
@@ -209,7 +209,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-strip-wsnumbers = true
+strip-wsnumbers = false
 pin-workspaces = true
 
 label-mode-padding = 2
