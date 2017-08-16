@@ -214,12 +214,12 @@ assign [class="Chromium"]          $workspace3
 assign [class="Firefox"]           $workspace3
 assign [class="jetbrains-idea-ce"] $workspace4
 assign [class="xfreerdp"]          $workspace5
-assign [class="Nylas"]             $workspace9
-assign [class="Thunderbird"]       $workspace9
 assign [class="Spotify"]           $workspace10
 
 for_window [class="Spotify"] move to workspace $workspace10
-for_window [title="xfreerdp"] floating disable
+for_window [class="Nautilus"] floating enable
+for_window [class="Lightscreen"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 #########
 # EXECS #
