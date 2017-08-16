@@ -22,45 +22,51 @@
 ; set $urgent-bg-color     #e06c75
 ; set $indicator           #c8ae9d
 
+##########
+# COLORS #
+##########
+
 [colors]
+# OLD COLORS #
 background = #00282C34
 background-alt = #44636D83
 ; foreground = #DD282C34
 foreground = #DDFFFFFF
 foreground-alt = #DDAAAAAA
+
+; background = #EEE8D5
+; background-alt = #EEE8D5
+; foreground = #875f00
+; foreground-alt = #875f00
 primary = #DDFFB52A
 secondary = #DDE60053
 alert = #DDBD2C40
+
+##########
+# GLOBAL #
+##########
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 [settings]
-; The throttle settings lets the eventloop swallow up til X events
-; if they happen within Y millisecond after first event was received.
-; This is done to prevent flood of update event.
-;
-; For example if 5 modules emit an update event at the same time, we really
-; just care about the last one. But if we wait too long for events to swallow
-; the bar would appear sluggish so we continue if timeout
-; expires or limit is reached.
 throttle-output = 5
 throttle-output-for = 10
-
-; Time in milliseconds that the input handler will wait between processing events
 throttle-input-for = 30
-
-; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
 screenchange-reload = true
+
+###########
+# TOP BAR #
+###########
 
 [bar/top]
 width = 100%
 height = 25
 offset-x = 0
 offset-y = 0
+monitor  = ${env:MONITOR}
 
-;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -73,36 +79,27 @@ border-bottom-size = 0
 border-bottom-color = ${colors.background}
 
 spacing = 1
-padding-left = 0
+padding-left = 1
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=10;1
+font-0 = Noto Mono:pixelsize=10;1
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=12;0
+font-3 = FontAwesome:pixelsize=11;0
 
-modules-left = date battery
+modules-left = date
 modules-center = i3
-modules-right = volume cpu memory filesystem-slash battery powermenu
-; modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+modules-right = volume cpu memory filesystem-slash backlight battery powermenu
 
 tray-position = right
-tray-padding = 0
+tray-padding = 2
 tray-transparent = true
-;tray-background = #0063ff
 
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+##############
+# 4K TOP BAR #
+##############
 
 [bar/top4k]
 width = 100%
@@ -110,7 +107,6 @@ height = 40
 offset-x = 0
 offset-y = 0
 
-;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -133,26 +129,17 @@ font-1 = unifont:size=12:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=16;0
 font-3 = FontAwesome:pixelsize=20;0
 
-modules-left = date battery
+modules-left = date
 modules-center = i3
-modules-right = volume cpu memory filesystem-slash battery powermenu
+modules-right = volume cpu memory filesystem-slash backlight battery powermenu
 
 tray-position = right
 tray-padding = 0
 tray-transparent = true
-;tray-background = #0063ff
 
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
+###########
+# MODULES #
+###########
 
 [module/xwindow]
 type = internal/xwindow
@@ -178,10 +165,6 @@ interval = 25
 
 mount-0 = /
 label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
-; format-mounted-underline = #f90000
-
-;label-unmounted = %mountpoint%: not mounted
-;label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
@@ -189,7 +172,6 @@ ws-icon-default = x
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-;label-focused-underline= ${colors.primary}
 label-focused-underline= #f3f99d
 label-focused-padding = 2
 
@@ -274,31 +256,17 @@ bar-progress-empty = ─
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
-click-left = connman-gtk
 
-format = <label> <bar>
-label = ""
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+format = <label>
+label = "%{F#5b5b5b}%{F-} %percentage%%"
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-; format = <ramp-coreload>
 format = <label>
 format-prefix =
 format-padding =
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #f90000
 label = %{F#5b5b5b} %{F-} %percentage%%
 ramp-coreload-0 = %{F#5b}▁%{F-}
 ramp-coreload-1 = %{F#5b}▂%{F-}
@@ -315,14 +283,12 @@ type = internal/memory
 interval = 5
 format = <label>
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #4bffdc
 label = %{F#5b5b5b} %{F-} %percentage_used%%
 bar-used-width = 10
 bar-used-foreground-0 = #5af78e
 bar-used-foreground-1 = #5af78e
 bar-used-foreground-2 = #f3f99d
 bar-used-foreground-3 = #ff5c57
-;bar-used-fill = ▐
 bar-used-fill = 
 bar-used-empty = 
 bar-used-empty-foreground = #444444
@@ -338,7 +304,6 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
 format-connected-underline = #9f78e1
-;format-disconnected-underline = ${self.format-connected-underline}
 
 label-connected = "%{A1:connman-gtk &:}%essid%%{A}"
 label-disconnected = "%{A1:connman-gtk &:}%{A}"
@@ -353,7 +318,6 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-;interface = br0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -365,38 +329,12 @@ format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname%
 label-disconnected-foreground = ${colors.foreground-alt}
 
-[module/networkspeedup]
-type = internal/network
-interface = wlp3s0
-label-connected = "%upspeed:7%"
-format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
-
-[module/networkspeeddown]
-type = internal/network
-interface = wlp3s0
-label-connected = "%downspeed:7%"
-format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
-
 [module/date]
 type = internal/date
 interval = 1
-
-; date = "%d%{F#92}%m%{F-}%{F#49}%y%{F-}"
 date = "%{F#5b5b5b}[%{F-}%d %{F#66}%B%{F-}%{F#5b5b5b}]%{F-}"
-; date-alt = " %d"
-
-; time = "%H%{F#92}%M%{F-}%{F#49}%S%{F-}"
 time = "%H%{F#92}%M%{F-}%{F#66}%S%{F-}"
-; time-alt =  %H:%M
-
-;format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #0a6cf5
-
 label = %date% %time%
 
 [module/volume]
@@ -408,55 +346,15 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-; format-muted-underline = #446644
-; format-volume-underline = #77cc77
 label-muted = "00%"
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #5af78e
-bar-volume-foreground-1 = #5af78e
-bar-volume-foreground-2 = #5af78e
-bar-volume-foreground-3 = #5af78e
-bar-volume-foreground-4 = #5af78e
-bar-volume-foreground-5 = #f3f99d
-bar-volume-foreground-6 = #ff5c57
-bar-volume-gradient = false
-bar-volume-indicator = │
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
-type = internal/battery
-battery = "BAT0"
-adapter = "AC"
-full-at = 99
-
-format-charging = <ramp-capacity> <label-charging>
-format-charging-underline = ${colors.red_light}
-format-charging-overline = ${self.format-charging-underline}
-label-charging = " %percentage% "
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-format-discharging-overline = ${self.format-charging-underline}
-time-format = %H:%M
-label-discharging = %time%
-
-format-full-prefix = "   "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-format-full-overline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+type = custom/script
+exec= acpitool | grep Battery | sed "s/[^.]*,//" | sed "s/[.].*//g" | sed "s/ //g"
+format = <label>
+label = "%{F#5b5b5b} %{F-}%output%%"
+interval = 60
 
 [module/temperature]
 type = internal/temperature
@@ -511,4 +409,5 @@ menu-3-0 = log out
 menu-3-0-exec = i3-msg exit
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
+
 ; vim:ft=dosini
