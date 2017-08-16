@@ -4,12 +4,13 @@
 # GENERAL #
 ###########
 
-font pango:DejaVu Sans Book 10
+font pango:Noto Sans UI 10
 
 floating_modifier $mod
 set $mod Mod1
 
 gaps inner 0
+gaps outer 5
 
 ###################
 # COLOR VARIABLES #
@@ -45,7 +46,7 @@ bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/windows3.png -p defau
 
 bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
 bindsym $mod+Shift+q kill
-bindsym $mod+space exec rofi -show combi
+bindsym $mod+d exec rofi -show combi
 bindsym $mod+Shift+d exec rofi -show window
 bindsym $mod+p exec gnome-screenshot -a
 
@@ -72,8 +73,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Move container to different output
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+Shift+} move container to output right
+bindsym $mod+Shift+{ move container to output left
 
 # Change layout
 bindsym $mod+h split h
@@ -83,9 +84,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+d focus mode_toggle
+bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
-
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
