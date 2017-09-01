@@ -246,12 +246,13 @@ set nowrap
 set number
 set showmatch
 set synmaxcol=300
-set background=dark
+set background=light
 set colorcolumn=80
 set colorcolumn+=180
 
-color two-firewatch
+" color two-firewatch
 " color crystin
+color solarized8_light
 
 " Indentation settings
 set shiftwidth=2
@@ -351,7 +352,6 @@ endif
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  set background=dark
 
   nnoremap <silent> <C-p> :FZF<CR>
   tnoremap <Esc> <C-\><C-n>

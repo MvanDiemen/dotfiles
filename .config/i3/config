@@ -9,8 +9,8 @@ font pango:Noto Sans UI 10
 floating_modifier $mod
 set $mod Mod1
 
-gaps inner 0
-gaps outer 5
+gaps inner 5
+gaps outer 10
 
 ###################
 # COLOR VARIABLES #
@@ -18,7 +18,7 @@ gaps outer 5
 
 set $bg-color            #2f8fe2
 set $bg-color-2          #636d83
-set $inactive-bg-color   #282c34
+set $inactive-bg-color   #f0f0f0
 set $text-color          #d6e9ff
 set $inactive-text-color #6e88a6
 set $urgent-bg-color     #e06c75
@@ -242,7 +242,7 @@ exec ~/.config/i3/start_spotify.sh
 exec ~/.config/i3/start_terminal.sh
 
 # Set background
-exec_always --no-startup-id feh --bg-scale ~/Pictures/deathstar.jpeg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/solarized-mountains-light.png
 
 # map keys on laptop keyboard
 exec_always xmodmap ~/repos/dotfiles/.Xmodmap

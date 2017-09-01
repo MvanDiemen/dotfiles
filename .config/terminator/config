@@ -31,7 +31,7 @@
       directory = ""
       order = 0
       parent = child0
-      profile = default
+      profile = solarized-light
       type = Terminal
       uuid = 7778f9b7-034d-46a3-82c1-9acae8fd279c
 [plugins]
@@ -66,7 +66,7 @@
     font                = Hack 16
   [[solarized-light]]
     palette             = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
-    background_color    = "#eee8d5"
+    background_color    = "#FDF6E3"
     cursor_color        = "#875f00"
     foreground_color    = "#875f00"
     background_type     = transparent
