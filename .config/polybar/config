@@ -27,20 +27,33 @@
 ##########
 
 [colors]
-# OLD COLORS #
-background = #00282C34
-background-alt = #44636D83
-; foreground = #DD282C34
-foreground = #DDFFFFFF
-foreground-alt = #DDAAAAAA
+background = #00f0f0f0
+background-alert = #44f0f0f0
+background-alt = #444
+foreground = #2d3635
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
 
-; background = #EEE8D5
-; background-alt = #EEE8D5
-; foreground = #875f00
-; foreground-alt = #875f00
-primary = #DDFFB52A
-secondary = #DDE60053
-alert = #DDBD2C40
+black       = #000000
+blue        = #3465a4
+cyan        = #46a4ff
+darkblue    = #20fa87
+darkcyan    = #89b6e2
+darkgreen   = #93d44f
+darkgrey    = #555753
+darkmagenta = #ce5c00
+darkred     = #ff0000
+darkyellow  = #eab93d
+green       = #00ff00
+lightgrey   = #cccccc
+magenta     = #f57900
+red         = #ff0000
+white       = #ffffff
+yellow      = #00ffff
+
+spotify-green = #1db954
 
 ##########
 # GLOBAL #
@@ -143,48 +156,14 @@ tray-transparent = true
 
 [module/xwindow]
 type = internal/xwindow
-label = "   %{F#7c7c7c}>%{F-} %title:0:70:...%"
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-underline = ${colors.secondary}
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-
-label-layout = %layout%
-
-label-indicator-padding = 2
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label = "   %{F#5b5b5b}> %title:0:70:...%"
 
 [module/filesystem-slash]
 type = internal/fs
 interval = 25
 
 mount-0 = /
-label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
-
-[module/bspwm]
-type = internal/bspwm
-ws-icon-default = x
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= #f3f99d
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-mounted = "%{F#5b5b5b} %percentage_used%%"
 
 [module/i3]
 type = internal/i3
@@ -195,70 +174,34 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
+label-mode-foreground = #FFF
 label-mode-background = ${colors.primary}
 
 label-focused = %name%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = #FFF
+label-focused-foreground = #5b5b5b
+label-focused-underline = #000
+label-focused-padding = 2
 
 label-unfocused = %name%
 label-unfocused-foreground = #5b5b5b
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 2
 
 label-urgent = %name%!
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-foreground = ${colors.darkred}
+label-urgent-padding = 2
 
 label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-[module/github]
-type = internal/github
-token = ${env:GITHUB_TOKEN}
-
-label = "%notifications%"
-format-underline = #2aa198
-format-prefix = " "
-format-prefix-foreground = #5b
-
-[module/mpd]
-type = internal/mpd
-
-format-online = " <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <label-song>  <bar-progress>"
-
-label-song-maxlen = 40
-label-song-ellipsis = true
-label-offline = offline
-
-icon-prev = %{F#5b}%{F-}
-icon-seekb = %{F#5b}%{F-}
-icon-stop = %{F#5b}%{F-}
-icon-play = %{F#5b}%{F-}
-icon-pause = %{F#5b}%{F-}
-icon-next = %{F#5b}%{F-}
-icon-seekf = %{F#5b}%{F-}
-
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground = ${colors.primary}
-toggle-off-foreground = #66
-
-bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
+label-visible-background = ${colors.background}
+label-visible-underline = $f3f99d
+label-visible-padding = 2
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
 
 format = <label>
-label = "%{F#5b5b5b}%{F-} %percentage%%"
+label = "%{F#5b5b5b} %percentage%%"
 
 [module/cpu]
 type = internal/cpu
@@ -267,23 +210,14 @@ format = <label>
 format-prefix =
 format-padding =
 format-prefix-foreground = ${colors.foreground-alt}
-label = %{F#5b5b5b} %{F-} %percentage%%
-ramp-coreload-0 = %{F#5b}▁%{F-}
-ramp-coreload-1 = %{F#5b}▂%{F-}
-ramp-coreload-2 = %{F#5b}▃%{F-}
-ramp-coreload-3 = %{F#ff5c57}▄%{F-}
-ramp-coreload-4 = %{F#ff5c57}▅%{F-}
-ramp-coreload-5 = %{F#ff5c57}▆%{F-}
-ramp-coreload-6 = %{F#ff5c57}▇%{F-}
-ramp-coreload-7 = %{F#ff5c57}█%{F-}
-
+label = %{F#5b5b5b} %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 5
 format = <label>
 format-prefix-foreground = ${colors.foreground-alt}
-label = %{F#5b5b5b} %{F-} %percentage_used%%
+label = %{F#5b5b5b} %percentage_used%%
 bar-used-width = 10
 bar-used-foreground-0 = #5af78e
 bar-used-foreground-1 = #5af78e
@@ -332,7 +266,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 [module/date]
 type = internal/date
 interval = 1
-date = "%{F#5b5b5b}[%{F-}%d %{F#66}%B%{F-}%{F#5b5b5b}]%{F-}"
+date = "%{F#5b5b5b}[%d %B]"
 time = "%H%{F#92}%M%{F-}%{F#66}%S%{F-}"
 format-prefix-foreground = ${colors.foreground-alt}
 label = %date% %time%
@@ -353,61 +287,51 @@ label-muted = "00%"
 type = custom/script
 exec= acpitool | grep Battery | sed "s/[^.]*,//" | sed "s/[.].*//g" | sed "s/ //g"
 format = <label>
-label = "%{F#5b5b5b} %{F-}%output%%"
+label = "%{F#5b5b5b} %output%%"
 interval = 60
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
 
 [module/powermenu]
 type = custom/menu
 
 label-open = 
-label-open-foreground = #ff5c56
+label-open-foreground = ${colors.alert}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.alert}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.darkgrey}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
+menu-0-0-foreground = ${colors.foreground}
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
+menu-0-1-foreground = ${colors.foreground}
 menu-0-2 = log out
 menu-0-2-exec = menu-open-3
+menu-0-2-foreground = ${colors.foreground}
 menu-0-3 = 
 menu-0-3-exec = i3lock -i /home/michael/Pictures/windows3.png -p default -d -n
+menu-0-3-foreground = ${colors.foreground}
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
+menu-1-0-foreground = ${colors.foreground}
 menu-1-1 = reboot
 menu-1-1-exec = sudo reboot
+menu-1-1-foreground = ${colors.foreground}
 
 menu-2-0 = power off
 menu-2-0-exec = shutdown now
+menu-2-0-foreground = ${colors.foreground}
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+menu-2-1-foreground = ${colors.foreground}
 
 menu-3-0 = log out
 menu-3-0-exec = i3-msg exit
+menu-3-0-foreground = ${colors.foreground}
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
+menu-3-1-foreground = ${colors.foreground}
 
 ; vim:ft=dosini
