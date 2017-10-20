@@ -11,6 +11,8 @@ set -x ES_HEAP_SIZE '1g'
 set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -U FZF_LEGACY_KEYBINDINGS 0
 
+set fish_greeting
+
 set fish_color_command blue
 set fish_color_param 00AACC
 set fish_color_quote green
