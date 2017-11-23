@@ -31,7 +31,7 @@
       directory = ""
       order = 0
       parent = child0
-      profile = solarized-light
+      profile = default
       type = Terminal
       uuid = 7778f9b7-034d-46a3-82c1-9acae8fd279c
 [plugins]
@@ -39,7 +39,7 @@
   [[default]]
     palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     foreground_color    = "#abb2bf"
-    background_color    = "#272E35"
+    background_color    = "#212121"
     cursor_color        = "#abb2bf"
     background_type     = transparent
     background_darkness = 1.0
@@ -49,14 +49,42 @@
     scrollback_infinite = True
     scrollbar_position  = hidden
     show_titlebar       = False
-    font                = Hack 9
+    font                = Hack 10
+  [[laptop]]
+    palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
+    foreground_color    = "#abb2bf"
+    background_color    = "#212121"
+    cursor_color        = "#abb2bf"
+    background_type     = transparent
+    background_darkness = 1.0
+    use_system_font     = False
+    login_shell         = True
+    scroll_on_output    = True
+    scrollback_infinite = True
+    scrollbar_position  = hidden
+    show_titlebar       = False
+    font                = Hack 14
+  [[solarized-dark]]
+    palette             = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    foreground_color    = "#eee8d5"
+    background_color    = "#002b36"
+    cursor_color        = "#eee8d5"
+    background_type     = transparent
+    background_darkness = 1.0
+    use_system_font     = False
+    login_shell         = True
+    scroll_on_output    = True
+    scrollback_infinite = True
+    scrollbar_position  = hidden
+    show_titlebar       = False
+    font                = Hack 10
   [[4ksetup]]
     palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     foreground_color    = "#abb2bf"
     background_color    = "#272E35"
     cursor_color        = "#abb2bf"
     background_type     = transparent
-    background_darkness = 0.9
+    background_darkness = 1.0
     use_system_font     = False
     login_shell         = True
     scroll_on_output    = True
