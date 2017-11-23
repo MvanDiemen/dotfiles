@@ -8,8 +8,14 @@ set -x GIT_EDITOR 'nvim'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x ES_HEAP_SIZE '1g'
 
-set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -x NPM_CONFIG_PREFIX '~/.npm-global'
+
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
 set -U FZF_LEGACY_KEYBINDINGS 0
+
+set -gx PATH '~/.npm-global/bin' $PATH
 
 set fish_greeting
 
