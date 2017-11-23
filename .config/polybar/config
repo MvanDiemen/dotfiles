@@ -27,10 +27,12 @@
 ##########
 
 [colors]
-background = #00f0f0f0
+background = #0Cffffff
 background-alert = #44f0f0f0
 background-alt = #444
-foreground = #2d3635
+; foreground = #2d3635
+foreground = #d6e0ff
+; foreground = #393939
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -68,6 +70,47 @@ throttle-output = 5
 throttle-output-for = 10
 throttle-input-for = 30
 screenchange-reload = true
+
+##############
+# LAPTOP BAR #
+##############
+
+[bar/laptop]
+width = 100%
+height = 35
+offset-x = 0
+offset-y = 0
+monitor  = ${env:MONITOR}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Noto Mono:pixelsize=13;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=13;0
+font-3 = FontAwesome:pixelsize=15;0
+
+modules-left = date
+modules-center = i3
+modules-right = volume cpu memory filesystem-slash backlight battery powermenu
+
+tray-position = right
+tray-padding = 2
+tray-transparent = true
 
 ###########
 # TOP BAR #
@@ -156,14 +199,14 @@ tray-transparent = true
 
 [module/xwindow]
 type = internal/xwindow
-label = "   %{F#5b5b5b}> %title:0:70:...%"
+label = "   > %title:0:70:...%"
 
 [module/filesystem-slash]
 type = internal/fs
 interval = 25
 
 mount-0 = /
-label-mounted = "%{F#5b5b5b} %percentage_used%%"
+label-mounted = " %percentage_used%%"
 
 [module/i3]
 type = internal/i3
@@ -179,12 +222,12 @@ label-mode-background = ${colors.primary}
 
 label-focused = %name%
 label-focused-background = #FFF
-label-focused-foreground = #5b5b5b
+label-focused-foreground = ${colors.foreground-alt}
 label-focused-underline = #000
 label-focused-padding = 2
 
 label-unfocused = %name%
-label-unfocused-foreground = #5b5b5b
+label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
 label-urgent = %name%!
@@ -201,32 +244,19 @@ type = internal/backlight
 card = intel_backlight
 
 format = <label>
-label = "%{F#5b5b5b} %percentage%%"
+label = " %percentage%%"
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format = <label>
-format-prefix =
-format-padding =
-format-prefix-foreground = ${colors.foreground-alt}
-label = %{F#5b5b5b} %percentage%%
+label =  %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 5
 format = <label>
-format-prefix-foreground = ${colors.foreground-alt}
-label = %{F#5b5b5b} %percentage_used%%
-bar-used-width = 10
-bar-used-foreground-0 = #5af78e
-bar-used-foreground-1 = #5af78e
-bar-used-foreground-2 = #f3f99d
-bar-used-foreground-3 = #ff5c57
-bar-used-fill = 
-bar-used-empty = 
-bar-used-empty-foreground = #444444
-bar-used-indicator =
+label =  %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -266,8 +296,8 @@ label-disconnected-foreground = ${colors.foreground-alt}
 [module/date]
 type = internal/date
 interval = 1
-date = "%{F#5b5b5b}[%d %B]"
-time = "%H%{F#92}%M%{F-}%{F#66}%S%{F-}"
+date = "[%d %B]"
+time = "%H:%M:%S"
 format-prefix-foreground = ${colors.foreground-alt}
 label = %date% %time%
 
@@ -284,12 +314,30 @@ label-muted = "00%"
 
 
 [module/battery]
-type = custom/script
-exec= acpitool | grep Battery | sed "s/[^.]*,//" | sed "s/[.].*//g" | sed "s/ //g"
-format = <label>
-label = "%{F#5b5b5b} %output%%"
-interval = 60
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+time-format = %H:%M
+format-charging = <label-charging>
+format-discharging = "<ramp-capacity><label-discharging>"
+label-charging = " %percentage%%"
+label-discharging = "%percentage%%"
+label-full = " %{percentage}%%"
 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+bar-capacity-width = 10
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
 [module/powermenu]
 type = custom/menu
 
