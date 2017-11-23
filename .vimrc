@@ -1,88 +1,55 @@
 " ============================================================================
 " VIM CONFIGURATION FILE
 "
-" This file contains all the Vim configuration settings that I use across
-" different computers. These settings include setting themes, remapping leader
-" keys, callbacks and many other settings. Font related settings are set in
-" ~/.hvimrc instead since different setups tend to render fonts completely
-" different (at least in my experience).
+" This file contains all the Vim configuration settings that I use. These
+" settings include setting themes, remapping leader keys, callbacks and many
+" other settings.
 "
-" The code in this configuration file is released in the public domain. You're
-" free to use it as you see fit.
+" The code in this configuration file is released in the public domain.
 "
 " Author:  Michaël van Diemen
 " License: Public Domain
 
 " ============================================================================
-" PLUGIN SETTINGS
+" VUNDLE INSTALLATION AND FOLDER SETUP
 "
-" Settings for various plugins such as Pathogen and Syntastic.
-"
-" runtime bundle/pathogen/autoload/pathogen.vim
-" call pathogen#infect()
 
-" Setup Vundle
 filetype off
 
-let needsToInstallBundles=0
-if !isdirectory(expand("~/.vim/bundle/vundle"))
-  echo "\nInstalling Vim dependencies... Please be patient!\n"
-  silent !mkdir -p ~/.vim/tmp
-  silent !mkdir -p ~/.vim/swap
-  silent !mkdir -p ~/.vim/bundle
-  silent !mkfifo ~/.vim/commands-fifo
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let needsToInstallBundles=1
-endif
+call plug#begin('~/.local/share/nvim/plugged')
 
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.fzf
-call vundle#rc()
+" =======
+" PLUGINS
+"
 
-" Do these first, because other plugins depend on them
-Bundle 'gmarik/vundle'
+Plug 'mileszs/ack.vim'
+Plug 'rakr/vim-two-firewatch'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'jremmen/vim-ripgrep'
+Plug 'yggdroot/indentline'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/tcomment'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'slashmili/alchemist.vim'
+Plug 'neomake/neomake'
 
-Bundle 'mileszs/ack.vim'
-Bundle 'raimondi/delimitmate'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'jremmen/vim-ripgrep'
-Bundle 'tpope/vim-rails'
-Bundle 'janko-m/vim-test'
-Bundle 'yggdroot/indentline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'ngmy/vim-rubocop'
-" Bundle 'powerline/powerline'
-Bundle 'vim-scripts/tcomment'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'pangloss/vim-javascript'
-Bundle 'noprompt/vim-yardoc'
-" Bundle 'junegunn/vim-easy-align'
-Bundle 'godlygeek/tabular'
-Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+" =========
+" LANGUAGES
+"
 
-" ================================
-" BUNDLE COLORSCHEMES
-Bundle 'w0ng/vim-hybrid'
-Bundle 'yorickpeterse/happy_hacking.vim'
-Bundle 'rakr/vim-two-firewatch'
-Bundle 'MvanDiemen/ghostbuster'
-Bundle 'rakr/vim-one'
-Bundle 'lifepillar/vim-solarized8'
-Bundle 'tyrannicaltoucan/vim-deep-space'
-Bundle 'tyrannicaltoucan/vim-quantum'
-Bundle 'liuchengxu/space-vim-dark'
+Plug 'sheerun/vim-polyglot'
+Plug 'dag/vim-fish'
+" Plug 'elixir-editors/vim-elixir'
+" Plug 'elzr/vim-json'
+" Plug 'slim-template/vim-slim'
 
-if needsToInstallBundles == 1
-  echo "\nInstalling Bundles, please ignore key map error messages\n"
-  :BundleInstall!
-  echo "\nInstalled.\n"
-endif
+call plug#end()
 
 filetype plugin indent on
 syntax on
@@ -90,108 +57,87 @@ syntax on
 " ============================================================================
 " GENERAL SETTINGS
 "
-" A collection of general Vim settings such as enabling the use of the mouse,
-" what key combination to use for toggling the paste mode and various other
-" settings.
-"
 
-set nocompatible
-set lazyredraw
-set ttyfast
-set hidden
-set hlsearch
 set termguicolors
-
 set shell=sh
-set backspace=indent,eol,start
-set omnifunc=syntaxcomplete#Complete
-set backupskip=/tmp/*
-set clipboard=unnamedplus
-set pastetoggle=<F2>
+set showcmd
+set hid
+set clipboard+=unnamedplus
 set mouse=a
-set tabline=%f
-set guitablabel=%f
 set history=100
-
-" Hackityhacky no swapfile warnings
-set shortmess+=A
-
-if system("xrandr --listactivemonitors") =~ 'DP-1'
-  set guifont=Hack\ 16
-else
-  set guifont=Hack\ 10
-endif
-
-" Do not show GUI Messages
-" Remove scroll bars
-set guioptions=aemc
-
-" Printer settings
-" set printoptions=number:n
-" set printoptions=header:0
-
-let mapleader      = ','
-let maplocalleader = '\'
-
-" These settings are disabled to get some extra performance out of Vim when
-" dealing with large files.
 set nocursorcolumn
 set nocursorline
+set shortmess+=A    " Hackityhacky no swapfile warnings
+set guioptions=aemc " Do not show GUI Messages & Remove scroll bars
+set signcolumn=yes  " Git Gutter settings
 
-" I've disabled parens matching since it usually slows down drawing of
-" characters quite a bit and I hardly rely on it anyway.
-let loaded_matchparen = 1
 
-" Use ag for the :grep command as well as for Ctrlp
-if executable('rg')
-  set grepprg=rg\ --nogroup\ --nocolor
+"============================================================================
+" SYNTAX SETTINGS
+"
+" Settings related to configuring the syntax features of Vim such as the text
+" width, what theme to use and so on.
+"
+set textwidth=120
+set nowrap
+set number
+set showmatch
+set synmaxcol=120
+set background=dark
+set colorcolumn=80
+set colorcolumn+=120
+set smartindent
+set autoindent
 
-  let g:ackprg='rg --vimgrep --no-heading'
+color two-firewatch
 
-  " let g:ctrlp_user_command = ':FZF ""'
-  nnoremap <c-p> :FZF<cr>
-endif
+" " Indentation settings
+" set shiftwidth=2
+" set softtabstop=2
+" set tabstop=2
+" set expandtab
 
-" CtrlP settings
-" let g:ag_working_path_mode="r"
+" Neomake settings
+let g:neomake_elixir_enabled_makers = ['mix', 'credo', 'dogma']
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Indent line character
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
 
-" Syntastic settings.
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 0
-let g:syntastic_error_symbol = '!'
-let g:syntastic_ignore_files = ['\.min\.js$', '\.min\.css$']
-let g:syntastic_loc_list_height = 5
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_style_error_symbol = '!'
-let g:syntastic_style_warning_symbol = '!'
+let g:vim_json_syntax_conceal = 0
 
-let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_sh_checkers = ['shellcheck']
-
-let g:syntastic_mode_map = {
-  \ 'mode': 'passive',
-  \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust', 'rupy']}
-
-" Ignore syntax checking for Shell scripts as this is currently broken.
-let g:syntastic_mode_map = {
-  \ 'mode': 'passive',
-  \ 'active_filetypes': ['c', 'javascript', 'coffee', 'cpp', 'rust', 'ruby']}
-
-let g:spacegray_italicize_comments = 1
 let g:two_firewatch_italics = 1
-let g:deepspace_italics     = 1
-let g:ghostbuster_italics   = 1
-let g:solarized_termtrans   = 1
-let g:solarized_term_italics = 1
+
+let g:alchemist_tag_disable = 1
 
 " NERDTree settings.
 let g:NERDTreeShowHidden = 1
@@ -213,6 +159,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
 let g:airline_theme           = 'twofirewatch'
+let g:airline#extensions#neomake#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -232,35 +179,11 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" Git Gutter settings
-let g:gitgutter_sign_column_always = 1
-
-"============================================================================
-" SYNTAX SETTINGS
-"
-" Settings related to configuring the syntax features of Vim such as the text
-" width, what theme to use and so on.
-"
-set textwidth=180
-set nowrap
-set number
-set showmatch
-set synmaxcol=300
-set background=light
-set colorcolumn=80
-set colorcolumn+=180
-
-" color two-firewatch
-" color crystin
-color solarized8_light
-
-" Indentation settings
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-set smartindent
-set autoindent
+let s:neomake_elixir_credo_config_typemap = {
+    \ 'F': 'W',
+    \ 'C': 'W',
+    \ 'D': 'I',
+    \ 'R': 'I'}
 
 " ============================================================================
 " CUSTOM FUNCTIONS
@@ -284,12 +207,15 @@ function! Trim()
 
 " Automatically strip trailing whitespace.
 autocmd! BufWritePre * :call Trim()
+autocmd! BufWritePost * Neomake
 
 " Set a few filetypes for some uncommon extensions
 autocmd! BufRead,BufNewFile *.md     set filetype=markdown
 autocmd! BufRead,BufNewFile Gemfile  set filetype=ruby
 autocmd! BufRead,BufNewFile *.rake   set filetype=ruby
 autocmd! BufRead,BufNewFile *.ru     set filetype=ruby
+autocmd! BufRead,BufNewFile *.ex     set filetype=elixir
+autocmd! BufRead,BufNewFile *.exs    set filetype=elixir
 
 " Taken from http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 autocmd BufWinEnter * match Visual /\s\+$/
@@ -302,11 +228,7 @@ autocmd! FileType ruby   setlocal sw=2 sts=2 ts=2 expandtab
 autocmd! FileType eruby  setlocal sw=2 sts=2 ts=2 expandtab
 autocmd! FileType yaml   setlocal sw=2 sts=2 ts=2 expandtab
 autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
-
-" Set rubycomplete buffer for ruby and eruby files
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd! FileType elixir setlocal sw=2 sts=2 ts=2 expandtab
 
 " ============================================================================
 " KEY BINDINGS
@@ -317,9 +239,6 @@ map <F5> :SyntasticCheck<CR><Esc>
 map <F6> :NERDTreeToggle<CR><Esc>
 map <F7> :GitGutterLineHighlightsToggle<CR><Esc>
 map <F8> :Gblame<space>w<CR><Esc>
-
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
 
 nnoremap \ :Rg<SPACE>
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
@@ -333,6 +252,9 @@ nnoremap :Wq :wq
 nnoremap :WQ :wq
 nnoremap :W :w
 nnoremap :Q :q
+
+noremap <MiddleMouse> <Nop>
+inoremap <MiddleMouse> <Nop>
 
 " Easy align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -362,20 +284,7 @@ endif
 if has('unix')
   let s:uname = system("uname")
   let g:python_host_prog='/usr/bin/python'
-  if s:uname == "Darwin\n"
-    let g:python_host_prog='/usr/bin/python'
-  endif
 endif
 
-" ============================================================================
-" HOST SPECIFIC CONFIGURATION
-"
-" Load a host specific .vimrc. This allows this generic .vimrc file to be
-" re-used across the various machines that I use while still being able to set
-" host specific configuration options.
-"
-" The name .hvimrc is derived from "host specific .vimrc".
-"
-if filereadable(expand('~/.hvimrc'))
-  source ~/.hvimrc
-endif
+" When writing a buffer, and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
