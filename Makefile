@@ -5,13 +5,13 @@ help:
 	@echo "vim          # Sets up Vim"
 	@echo "tmux         # Copies the .tmux.conf file to ~/"
 	@echo "git          # Sets the global .gitignore"
-	@echo "gitmac       # Sets the global .gitignore for mac"
 	@echo "fonts        # Configures X11 to properly render fonts"
 	@echo "pry          # Creates the configuration files for Pry"
 	@echo "keybindings  # Configures keybindings"
 	@echo "fish         # Configures Fish"
 	@echo "termite      # Configures Termite"
 	@echo "i3           # Configures i3"
+	@echo "polybar      # Configures polybar"
 	@echo "terminator   # Configures Terminator"
 	@echo "brew         # Installs and configures Homebrew"
 	@echo "gem          # Sets gem doc settings"
@@ -28,6 +28,7 @@ all:
 	@make pry
 	@make termite
 	@make i3
+	@make polybar
 	@make keybindings
 	@make gem
 	@make ruby-version
@@ -45,17 +46,14 @@ vim:
 tmux:
 	@ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
 
-gitmac:
-	@cp .gitignore_global ${HOME}/.gitignore_global
-	@cp .gitconfigmac ${HOME}/.gitconfig
-
 git:
-	@cp .gitignore_global ${HOME}/.gitignore_global
-	@cp .gitconfig ${HOME}/.gitconfig
+	@ln -s ${PWD}/.gitignore_global ${HOME}/.gitignore_global
+	@ln -s ${PWD}/.gitconfigmac ${HOME}/.gitconfig
+	@ln -s ${PWD}/.ignore ${HOME}/.ignore
 
 fonts:
-	@cp .Xdefaults ${HOME}/.Xdefaults
-	@cp .fonts.conf ${HOME}/.fonts.conf
+	@ln -s ${PWD}/.Xdefaults ${HOME}/.Xdefaults
+	@ln -s ${PWD}/.fonts.conf ${HOME}/.fonts.conf
 
 pry:
 	@ln -s ${PWD}/.pryrc ${HOME}/.pryrc
@@ -66,6 +64,9 @@ keybindings:
 
 fish:
 	@ln -s ${PWD}/.config/fish ${HOME}/.config/
+
+polybar:
+	@ln -s ${PWD}/.config/polybar ${HOME}/.config/
 
 termite:
 	@ln -s ${PWD}/.config/termite ${HOME}/.config/
