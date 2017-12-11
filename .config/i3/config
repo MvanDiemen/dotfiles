@@ -42,7 +42,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg exit'"
-bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n
+bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
 
 bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
 bindsym $mod+Shift+q kill
@@ -51,25 +51,15 @@ bindsym $mod+Shift+d exec rofi -show window
 bindsym $mod+p exec gnome-screenshot -a
 
 # Change window
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
-bindsym $mod+l focus right
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # Move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # Move container to different output
@@ -80,28 +70,21 @@ bindsym $mod+Shift+} move container to output right
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay  exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
 bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 10"
-
-########
-# PACTL AUDIO CONTROLS
-# bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
-# bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5% "
-# bindsym XF86AudioMute 	 exec --no-startup-id pactl set-sink-mute 0 toggle
-########
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master unmute;  amixer sset Master 5%+ "
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master unmute ; amixer sset Master 5%- "
@@ -129,38 +112,6 @@ set $workspace7 "7: ?"
 set $workspace8 "8: ?"
 set $workspace9 "9: ?"
 set $workspace10 "10: "
-# set $workspace11 "11: "
-# set $workspace12 "12: "
-# set $workspace13 "13: "
-# set $workspace14 "14: "
-# set $workspace15 "15: "
-# set $workspace16 "16: ?"
-# set $workspace17 "17: ?"
-# set $workspace18 "18: ?"
-# set $workspace19 "19: ?"
-# set $workspace20 "20: "
-#
-# assign workspaces to screens
-# workspace $workspace1 output DP-1-2
-# workspace $workspace2 output DP-1-2
-# workspace $workspace3 output DP-1-2
-# workspace $workspace4 output DP-1-2
-# workspace $workspace5 output DP-1-2
-# workspace $workspace6 output DP-1-2
-# workspace $workspace7 output DP-1-2
-# workspace $workspace8 output DP-1-2
-# workspace $workspace9 output DP-1-2
-# workspace $workspace10 output DP-1-2
-# workspace $workspace11 output DP-1-1
-# workspace $workspace12 output DP-1-1
-# workspace $workspace13 output DP-1-1
-# workspace $workspace14 output DP-1-1
-# workspace $workspace15 output DP-1-1
-# workspace $workspace16 output DP-1-1
-# workspace $workspace17 output DP-1-1
-# workspace $workspace18 output DP-1-1
-# workspace $workspace19 output DP-1-1
-# workspace $workspace20 output DP-1-1
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -174,17 +125,6 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-# bindsym $mod+Control+1 workspace $workspace11
-# bindsym $mod+Control+2 workspace $workspace12
-# bindsym $mod+Control+3 workspace $workspace13
-# bindsym $mod+Control+4 workspace $workspace14
-# bindsym $mod+Control+5 workspace $workspace15
-# bindsym $mod+Control+6 workspace $workspace16
-# bindsym $mod+Control+7 workspace $workspace17
-# bindsym $mod+Control+8 workspace $workspace18
-# bindsym $mod+Control+9 workspace $workspace19
-# bindsym $mod+Control+0 workspace $workspace20
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -197,35 +137,21 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# bindsym $mod+Control+Shift+1 move container to workspace $workspace11
-# bindsym $mod+Control+Shift+2 move container to workspace $workspace12
-# bindsym $mod+Control+Shift+3 move container to workspace $workspace13
-# bindsym $mod+Control+Shift+4 move container to workspace $workspace14
-# bindsym $mod+Control+Shift+5 move container to workspace $workspace15
-# bindsym $mod+Control+Shift+6 move container to workspace $workspace16
-# bindsym $mod+Control+Shift+7 move container to workspace $workspace17
-# bindsym $mod+Control+Shift+8 move container to workspace $workspace18
-# bindsym $mod+Control+Shift+9 move container to workspace $workspace19
-# bindsym $mod+Control+Shift+0 move container to workspace $workspace20
-
 ########################
 # WORKSPACE ASSIGNMENT #
 ########################
 
-assign [class="Terminator"]        $workspace1
-assign [class="Termite"]           $workspace1
-assign [class="Franz"]             $workspace2
-assign [class="Slack"]             $workspace2
-assign [class="Chromium"]          $workspace3
-assign [class="Firefox"]           $workspace3
-# assign [class="jetbrains-idea-ce"] $workspace4
-# assign [class="xfreerdp"]          $workspace5
-assign [class="Spotify"]           $workspace10
+assign [class="Terminator"] $workspace1
+assign [class="Termite"]    $workspace1
+assign [class="Franz"]      $workspace2
+assign [class="Slack"]      $workspace2
+assign [class="Chromium"]   $workspace3
+assign [class="Firefox"]    $workspace3
+assign [class="Spotify"]    $workspace10
 
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [class="Nautilus"] floating enable
 for_window [class="Lightscreen"] floating enable
-# for_window [class="Pavucontrol"] floating enable
 
 #########
 # EXECS #
@@ -249,7 +175,8 @@ exec ~/.config/i3/start_spotify.sh
 exec ~/.config/i3/start_terminal.sh
 
 # Set background
-exec_always --no-startup-id feh --bg-scale ~/Pictures/speedster.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/speedster.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/renault-gb.jpg
 
 # map keys on laptop keyboard
 exec_always xmodmap ~/repos/dotfiles/.Xmodmap
