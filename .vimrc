@@ -231,25 +231,27 @@ autocmd! BufWritePre * :call Trim()
 autocmd! BufWritePost * Neomake
 
 " Set a few filetypes for some uncommon extensions
-autocmd! BufRead,BufNewFile *.md     set filetype=markdown
-autocmd! BufRead,BufNewFile Gemfile  set filetype=ruby
-autocmd! BufRead,BufNewFile *.rake   set filetype=ruby
-autocmd! BufRead,BufNewFile *.ru     set filetype=ruby
-autocmd! BufRead,BufNewFile *.ex     set filetype=elixir
-autocmd! BufRead,BufNewFile *.exs    set filetype=elixir
+au BufRead,BufNewFile *.md     setf markdown
+au BufRead,BufNewFile Gemfile  setf ruby
+au BufRead,BufNewFile *.rake   setf ruby
+au BufRead,BufNewFile *.ru     setf ruby
+au BufRead,BufNewFile *.ex     setf elixir
+au BufRead,BufNewFile *.exs    setf elixir
+au BufNewFile,BufRead *.liquid setf liquid
 
 " Taken from http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-autocmd BufWinEnter * match Visual /\s\+$/
-autocmd InsertEnter * match Visual /\s\+\%#\@<!$/
-autocmd InsertLeave * match Visual /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+au BufWinEnter * match Visual /\s\+$/
+au InsertEnter * match Visual /\s\+\%#\@<!$/
+au InsertLeave * match Visual /\s\+$/
+au BufWinLeave * call clearmatches()
 
 " Use 2 spaces per indentation level for Ruby, YAML and Vim script.
-autocmd! FileType ruby   setlocal sw=2 sts=2 ts=2 expandtab
-autocmd! FileType eruby  setlocal sw=2 sts=2 ts=2 expandtab
-autocmd! FileType yaml   setlocal sw=2 sts=2 ts=2 expandtab
-autocmd! FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
-autocmd! FileType elixir setlocal sw=2 sts=2 ts=2 expandtab
+au FileType ruby   setlocal sw=2 sts=2 ts=2 expandtab
+au FileType eruby  setlocal sw=2 sts=2 ts=2 expandtab
+au FileType yaml   setlocal sw=2 sts=2 ts=2 expandtab
+au FileType coffee setlocal sw=2 sts=2 ts=2 expandtab
+au FileType elixir setlocal sw=2 sts=2 ts=2 expandtab
+au FileType liquid setlocal sw=2 sts=2 ts=2 expandtab
 
 " ============================================================================
 " KEY BINDINGS
