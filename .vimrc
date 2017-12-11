@@ -72,7 +72,7 @@ set guioptions=aemc " Do not show GUI Messages & Remove scroll bars
 set signcolumn=yes  " Git Gutter settings
 
 
-"============================================================================
+" ===========================================================================
 " SYNTAX SETTINGS
 "
 " Settings related to configuring the syntax features of Vim such as the text
