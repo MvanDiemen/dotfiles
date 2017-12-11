@@ -300,14 +300,13 @@ if has('nvim')
 
   nnoremap <silent> <C-p> :FZF<CR>
   tnoremap <Esc> <C-\><C-n>
-
-  runtime! python_setup.vim
 endif
 
 if has('unix')
   let s:uname = system("uname")
-  let g:python_host_prog='/usr/bin/python'
 endif
 
+let g:python_host_prog='/usr/bin/python3'
+
 " When writing a buffer, and on normal mode changes (after 750ms).
-call neomake#configure#automake('nw', 750)
+call neomake#configure#automake('nw', 200)
