@@ -27,7 +27,7 @@
 ##########
 
 [colors]
-background = #0Cffffff
+background = #00ffffff
 background-alert = #44f0f0f0
 background-alt = #444
 ; foreground = #2d3635
@@ -358,7 +358,7 @@ menu-0-2 = log out
 menu-0-2-exec = menu-open-3
 menu-0-2-foreground = ${colors.foreground}
 menu-0-3 = 
-menu-0-3-exec = i3lock -i /home/michael/Pictures/windows3.png -p default -d -n
+menu-0-3-exec = i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
 menu-0-3-foreground = ${colors.foreground}
 
 menu-1-0 = cancel
