@@ -33,11 +33,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/tcomment'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'neomake/neomake'
+Plug 'enricobacis/vim-airline-clock'
+Plug 'luochen1990/rainbow'
 
 " =========
 " LANGUAGES
@@ -45,9 +47,7 @@ Plug 'neomake/neomake'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'dag/vim-fish'
-" Plug 'elixir-editors/vim-elixir'
-" Plug 'elzr/vim-json'
-" Plug 'slim-template/vim-slim'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
