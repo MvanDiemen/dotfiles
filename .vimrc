@@ -81,15 +81,13 @@ set signcolumn=yes  " Git Gutter settings
 set textwidth=120
 set nowrap
 set number
-set showmatch
-set synmaxcol=120
-set background=dark
+set synmaxcol=200
 set colorcolumn=80
 set colorcolumn+=120
 set smartindent
 set autoindent
-
-color two-firewatch
+set background=dark
+color happy_hacking
 
 " " Indentation settings
 " set shiftwidth=2
@@ -134,10 +132,9 @@ let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
 
 let g:vim_json_syntax_conceal = 0
-
-let g:two_firewatch_italics = 1
-
-let g:alchemist_tag_disable = 1
+let g:two_firewatch_italics   = 1
+let g:alchemist_tag_disable   = 1
+let g:rainbow_active          = 0
 
 " NERDTree settings.
 let g:NERDTreeShowHidden = 1
