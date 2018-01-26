@@ -24,6 +24,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mileszs/ack.vim'
 Plug 'rakr/vim-two-firewatch'
+Plug 'ajmwagar/vim-deus'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -37,6 +38,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'slashmili/alchemist.vim'
+Plug 'mhinz/vim-mix-format'
 Plug 'neomake/neomake'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'luochen1990/rainbow'
@@ -60,6 +62,7 @@ syntax on
 
 set termguicolors
 set shell=sh
+set nolazyredraw
 set showcmd
 set hid
 set clipboard+=unnamedplus
@@ -81,7 +84,7 @@ set signcolumn=yes  " Git Gutter settings
 set textwidth=120
 set nowrap
 set number
-set synmaxcol=200
+set synmaxcol=400
 set colorcolumn=80
 set colorcolumn+=120
 set smartindent
@@ -154,6 +157,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
+
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
 
 let g:vim_json_syntax_conceal = 0
 let g:two_firewatch_italics   = 1
