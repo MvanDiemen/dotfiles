@@ -35,8 +35,6 @@ all:
 	@make xresources
 
 vim:
-	@git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
-	@vim +BundleInstall +qall
 	@ln -s ${PWD}/.vim ${HOME}/.vim
 	@ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	@ln -s ${PWD}/.gvimrc ${HOME}/.gvimrc
