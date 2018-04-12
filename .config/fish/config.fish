@@ -8,6 +8,9 @@ set -x GIT_EDITOR 'nvim'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x ES_HEAP_SIZE '1g'
 
+set -x LC_ALL 'en_GB.UTF8'
+set -x LANG 'en_GB.UTF8'
+
 set -x NPM_CONFIG_PREFIX '~/.npm-global'
 
 export ERL_AFLAGS="-kernel shell_history enabled"
