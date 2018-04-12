@@ -50,9 +50,9 @@
     show_titlebar       = False
     font                = Hack 10
   [[laptop]]
-    palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
-    foreground_color    = "#abb2bf"
-    background_color    = "#212121"
+    palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#6086d7:#b294bb:#56b6c2:#ffffff"
+    foreground_color    = "#d6e0ff"
+    background_color    = "#354660"
     cursor_color        = "#abb2bf"
     background_type     = transparent
     background_darkness = 1.0
@@ -76,7 +76,7 @@
     scrollback_infinite = True
     scrollbar_position  = hidden
     show_titlebar       = False
-    font                = Hack 10
+    font                = Hack 16
   [[4ksetup]]
     palette             = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     foreground_color    = "#abb2bf"
@@ -104,7 +104,7 @@
     scrollback_infinite = True
     scrollbar_position  = hidden
     show_titlebar       = False
-    font                = Hack 9
+    font                = Hack 10
   [[solarized-light-original]]
     palette             = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
     background_color    = "#eee8d5"
@@ -118,4 +118,4 @@
     scrollback_infinite = True
     scrollbar_position  = hidden
     show_titlebar       = False
-    font                = Hack 9
+    font                = Hack 10
