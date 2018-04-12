@@ -25,7 +25,6 @@
       parent = ""
       position = 0:32
       size = 3840, 2103
-      title = ~/r/nfr
       type = Window
     [[[terminal1]]]
       directory = ""
