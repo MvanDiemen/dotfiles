@@ -27,12 +27,12 @@
 ##########
 
 [colors]
-background = #00ffffff
+background-alt = #00ffffff
 background-alert = #44f0f0f0
-background-alt = #444
-; foreground = #2d3635
-foreground = #d6e0ff
-; foreground = #393939
+background = #354660
+# foreground = #8bb6b7
+# foreground = #d6e0ff
+foreground = #9daddd
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -85,17 +85,23 @@ monitor  = ${env:MONITOR}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-overline-size = 0
-overline-color = #f00
+overline-size = 2
+overline-color = ${colors.background-alt}
 underline-size = 2
-underline-color = #00f
+underline-color = ${colors.background-alt}
 
 border-bottom-size = 0
-border-bottom-color = ${colors.background}
+border-top-size = 10
+border-left-size = 18
+border-right-size = 18
+border-bottom-color = ${colors.background-alt}
+border-top-color = ${colors.background-alt}
+border-left-color = ${colors.background-alt}
+border-right-color = ${colors.background-alt}
 
 spacing = 1
-padding-left = 1
-padding-right = 2
+padding-left = 2
+padding-right = 5
 module-margin-left = 1
 module-margin-right = 2
 
@@ -104,13 +110,13 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=13;0
 font-3 = FontAwesome:pixelsize=15;0
 
-modules-left = date
-modules-center = i3
-modules-right = volume cpu memory filesystem-slash backlight battery powermenu
+modules-left = i3
+modules-center = date
+modules-right = volume cpu memory backlight battery powermenu
 
 tray-position = right
 tray-padding = 2
-tray-transparent = true
+tray-background = ${colors.background}
 
 ###########
 # TOP BAR #
@@ -145,13 +151,11 @@ font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=11;0
 
-modules-left = date
-modules-center = i3
-modules-right = volume cpu memory filesystem-slash backlight battery powermenu
+modules-left = i3
+modules-center = date
+modules-right = volume cpu memory wlan battery powermenu
 
-tray-position = right
-tray-padding = 2
-tray-transparent = true
+; tray-position = right
 
 ##############
 # 4K TOP BAR #
@@ -180,14 +184,14 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=16;1
+font-0 = Fira Code:pixelsize=16;1
 font-1 = unifont:size=12:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=16;0
 font-3 = FontAwesome:pixelsize=20;0
 
 modules-left = date
 modules-center = i3
-modules-right = volume cpu memory filesystem-slash backlight battery powermenu
+modules-right = volume cpu memory battery powermenu
 
 tray-position = right
 tray-padding = 0
@@ -217,13 +221,10 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #FFF
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.foreground}
 
-label-focused = %name%
-label-focused-background = #FFF
-label-focused-foreground = ${colors.foreground-alt}
-label-focused-underline = #000
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
 label-unfocused = %name%
@@ -260,33 +261,22 @@ label =  %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp4s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
+label-connected = " %essid%"
 
-format-connected-underline = #9f78e1
-
-label-connected = "%{A1:connman-gtk &:}%essid%%{A}"
-label-disconnected = "%{A1:connman-gtk &:}%{A}"
+label-disconnected = "%{A1:connman-gtk &:}"
 label-disconnected-foreground = #5b
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.foreground-alt}
+format-connected-prefix = ""
+format-connected-foreground-foreground = ${colors.foreground}
+
 label-connected = %local_ip%
 
 format-disconnected-underline = ${self.format-connected-underline}
@@ -296,10 +286,10 @@ label-disconnected-foreground = ${colors.foreground-alt}
 [module/date]
 type = internal/date
 interval = 1
-date = "[%d %B]"
-time = "%H:%M:%S"
-format-prefix-foreground = ${colors.foreground-alt}
-label = %date% %time%
+date = "%d %b"
+time = "%H:%M"
+format-foreground = ${colors.foreground}
+label = "  %date%     %time%"
 
 [module/volume]
 type = internal/volume
@@ -310,8 +300,6 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = "00%"
-
 
 [module/battery]
 type = internal/battery
@@ -342,44 +330,48 @@ animation-charging-framerate = 750
 type = custom/menu
 
 label-open = 
-label-open-foreground = ${colors.alert}
-label-close =  cancel
-label-close-foreground = ${colors.alert}
+label-open-foreground = ${colors.foreground}
+label-close = 
+label-close-foreground = ${colors.foreground}
 label-separator = |
 label-separator-foreground = ${colors.darkgrey}
 
-menu-0-0 = reboot
+# Reboot
+menu-0-0 = 
 menu-0-0-exec = menu-open-1
-menu-0-0-foreground = ${colors.foreground}
-menu-0-1 = power off
+menu-0-0-foreground = ${colors.darkyellow}
+# Shutdown
+menu-0-1 = 
 menu-0-1-exec = menu-open-2
-menu-0-1-foreground = ${colors.foreground}
-menu-0-2 = log out
+menu-0-1-foreground = ${colors.darkred}
+# Logout
+menu-0-2 = 
 menu-0-2-exec = menu-open-3
-menu-0-2-foreground = ${colors.foreground}
+menu-0-2-foreground = ${colors.lightgrey}
+# Lock
 menu-0-3 = 
 menu-0-3-exec = i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
-menu-0-3-foreground = ${colors.foreground}
+menu-0-3-foreground = ${colors.darkgreen}
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-0-foreground = ${colors.foreground}
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-menu-1-1-foreground = ${colors.foreground}
+menu-1-0 = reboot
+menu-1-0-exec = sudo reboot
+menu-1-0-foreground = ${colors.darkred}
+menu-1-1 = cancel
+menu-1-1-exec = menu-open-0
+menu-1-1-foreground = ${colors.spotify-green}
 
 menu-2-0 = power off
 menu-2-0-exec = shutdown now
-menu-2-0-foreground = ${colors.foreground}
+menu-2-0-foreground = ${colors.darkred}
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-menu-2-1-foreground = ${colors.foreground}
+menu-2-1-foreground = ${colors.spotify-green}
 
 menu-3-0 = log out
 menu-3-0-exec = i3-msg exit
-menu-3-0-foreground = ${colors.foreground}
+menu-3-0-foreground = ${colors.darkred}
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
-menu-3-1-foreground = ${colors.foreground}
+menu-3-1-foreground = ${colors.spotify-green}
 
 ; vim:ft=dosini
