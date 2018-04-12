@@ -42,7 +42,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg exit'"
-bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
+bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/cookiemonster.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#FFFFFF' -e
 
 bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
 bindsym $mod+Shift+q kill
@@ -147,6 +147,7 @@ assign [class="Franz"]      $workspace2
 assign [class="Slack"]      $workspace2
 assign [class="Chromium"]   $workspace3
 assign [class="Firefox"]    $workspace3
+assign [class="Code"]       $workspace4
 assign [class="Spotify"]    $workspace10
 
 for_window [class="Spotify"] move to workspace $workspace10
@@ -176,7 +177,10 @@ exec ~/.config/i3/start_terminal.sh
 
 # Set background
 # exec_always --no-startup-id feh --bg-scale ~/Pictures/speedster.jpg
-exec_always --no-startup-id feh --bg-scale ~/Pictures/renault-gb.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/renault-gb.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/layeredskyline_blue.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/141340.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/2ddKuXP.jpg
 
 # map keys on laptop keyboard
 exec_always xmodmap ~/repos/dotfiles/.Xmodmap
