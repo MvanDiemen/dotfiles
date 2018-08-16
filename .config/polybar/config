@@ -29,10 +29,11 @@
 [colors]
 background-alt = #00ffffff
 background-alert = #44f0f0f0
-background = #354660
+; background = #354660
+background = #282C34
 # foreground = #8bb6b7
 # foreground = #d6e0ff
-foreground = #9daddd
+foreground = #C8C8C8
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -81,6 +82,7 @@ height = 35
 offset-x = 0
 offset-y = 0
 monitor  = ${env:MONITOR}
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -90,10 +92,10 @@ overline-color = ${colors.background-alt}
 underline-size = 2
 underline-color = ${colors.background-alt}
 
-border-bottom-size = 0
-border-top-size = 10
-border-left-size = 18
-border-right-size = 18
+border-bottom-size = 5
+border-top-size = 0
+border-left-size = 5
+border-right-size = 5
 border-bottom-color = ${colors.background-alt}
 border-top-color = ${colors.background-alt}
 border-left-color = ${colors.background-alt}
@@ -128,6 +130,7 @@ height = 25
 offset-x = 0
 offset-y = 0
 monitor  = ${env:MONITOR}
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -137,8 +140,14 @@ overline-color = #f00
 underline-size = 2
 underline-color = #00f
 
-border-bottom-size = 0
-border-bottom-color = ${colors.background}
+border-bottom-size = 5
+border-top-size = 0
+border-left-size = 5
+border-right-size = 5
+border-bottom-color = ${colors.background-alt}
+border-top-color = ${colors.background-alt}
+border-left-color = ${colors.background-alt}
+border-right-color = ${colors.background-alt}
 
 spacing = 1
 padding-left = 1
@@ -157,6 +166,9 @@ modules-right = volume cpu memory wlan battery powermenu
 
 ; tray-position = right
 
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
 ##############
 # 4K TOP BAR #
 ##############
@@ -184,14 +196,14 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Fira Code:pixelsize=16;1
+font-0 = Fira Code:pixelsize=14;1
 font-1 = unifont:size=12:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=16;0
-font-3 = FontAwesome:pixelsize=20;0
+font-2 = siji:pixelsize=14;0
+font-3 = FontAwesome:pixelsize=16;0
 
-modules-left = date
-modules-center = i3
-modules-right = volume cpu memory battery powermenu
+modules-left = i3
+modules-center = date
+modules-right = volume cpu memory wlan battery powermenu
 
 tray-position = right
 tray-padding = 0
@@ -292,7 +304,7 @@ format-foreground = ${colors.foreground}
 label = "  %date%     %time%"
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume>
 label-volume = " %percentage%%"
@@ -350,7 +362,8 @@ menu-0-2-exec = menu-open-3
 menu-0-2-foreground = ${colors.lightgrey}
 # Lock
 menu-0-3 = 
-menu-0-3-exec = i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
+# menu-0-3-exec = i3lock -i /home/michael/Pictures/alpaca.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#333333' -e
+menu-0-3-exec = betterlockscreen --lock
 menu-0-3-foreground = ${colors.darkgreen}
 
 menu-1-0 = reboot
