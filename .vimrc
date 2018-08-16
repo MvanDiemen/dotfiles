@@ -42,6 +42,8 @@ Plug 'mhinz/vim-mix-format'
 Plug 'neomake/neomake'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'luochen1990/rainbow'
+Plug 'yorickpeterse/happy_hacking.vim'
+Plug 'joshdick/onedark.vim'
 
 " =========
 " LANGUAGES
@@ -90,7 +92,7 @@ set colorcolumn+=120
 set smartindent
 set autoindent
 set background=dark
-color happy_hacking
+color onedark
 
 " " Indentation settings
 " set shiftwidth=2
@@ -185,8 +187,8 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
-let g:airline_theme           = 'twofirewatch'
-let g:airline#extensions#neomake#enabled = 1
+let g:airline_theme           = 'onedark'
+" let g:airline#extensions#neomake#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
