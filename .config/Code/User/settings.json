@@ -1,0 +1,72 @@
+{
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "workbench.colorTheme": "One Dark Pro Italic",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "zenMode.fullScreen": false,
+    "zenMode.hideTabs": false,
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 2,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.overviewRulerBorder": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.maxColumn": 80,
+    "editor.scrollbar.vertical": "hidden",
+    "workbench.iconTheme": "file-icons",
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#388E3C",
+        "list.activeSelectionForeground": "#388E3C",
+        "list.inactiveSelectionForeground": "#388E3C",
+        "list.highlightForeground": "#388E3C",
+        "scrollbarSlider.activeBackground": "#388E3C50",
+        "editorSuggestWidget.highlightForeground": "#388E3C",
+        "textLink.foreground": "#388E3C",
+        "progressBar.background": "#388E3C",
+        "pickerGroup.foreground": "#388E3C",
+        "tab.activeBorder": "#388E3C",
+        "notificationLink.foreground": "#388E3C",
+        "editor.findWidgetResizeBorder": "#388E3C",
+        "editorWidget.border": "#388E3C"
+    },
+    "materialTheme.cache.workbench.settings": {
+        "accent": "Breaking Bad",
+        "accentPrevious": "Graphite"
+    },
+    "editor.letterSpacing": 0.1,
+    "editor.renderWhitespace": "none",
+    "window.restoreWindows": "none",
+    "vim.useSystemClipboard": true,
+    "html.format.indentInnerHtml": true,
+    "material-icon-theme.folders.color": "#26a69a",
+    "gitlens.historyExplorer.enabled": true,
+    "explorer.confirmDelete": false,
+    "materialTheme.fixIconsRunning": false,
+    "materialTheme.accentPrevious": "Tomato",
+    "materialTheme.accent": "Breaking Bad",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "[javascript]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.wordBasedSuggestions": false,
+        "editor.formatOnType": true,
+        "editor.trimAutoWhitespace": false,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true
+    },
+    "prettier.eslintIntegration": true,
+    "eslint.packageManager": "yarn",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "terminal.external.linuxExec": "/usr/bin/terminator",
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontSize": 14
+}
