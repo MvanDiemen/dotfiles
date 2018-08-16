@@ -1,17 +1,16 @@
-source /usr/local/share/chruby/chruby.fish
-source /usr/local/share/chruby/auto.fish
-
 set -x CHRUBY_ROOT /usr
 set -x TERM 'xterm-256color'
-set -x EDITOR 'nvim'
-set -x GIT_EDITOR 'nvim'
+set -Ux EDITOR '/usr/bin/nvim'
+set -Ux GIT_EDITOR 'nvim'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x ES_HEAP_SIZE '1g'
 
-set -x LC_ALL 'en_GB.UTF8'
-set -x LANG 'en_GB.UTF8'
+set -x EDITOR '/usr/bin/nvim'
+set -x VISUAL '/usr/bin/nvim'
 
-set -x NPM_CONFIG_PREFIX '~/.npm-global'
+set -Ux LC_ALL 'en_GB.UTF8'
+set -Ux LANG 'en_GB.UTF8'
+
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -48,11 +47,6 @@ set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_ruby no
 set -g theme_project_dir_length 1
 
-if test -e $PWD/.ruby-version
-  chruby (cat $PWD/.ruby-version)
-else
-  chruby (cat $HOME/.ruby-version)
-end
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
@@ -65,4 +59,3 @@ if status --is-login
 end
 
 bind \cr "rake"
-
