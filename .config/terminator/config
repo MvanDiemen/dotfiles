@@ -41,7 +41,7 @@
     background_darkness = 1.0
     background_type = transparent
     cursor_color = "#528bff"
-    font = Fira Code 11
+    font = Fira Code 12
     foreground_color = "#c8c8c8"
     login_shell = True
     palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
