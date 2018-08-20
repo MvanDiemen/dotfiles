@@ -1,5 +1,5 @@
 #!/bin/bash
-if xrandr --query | grep "HDMI1 connected"; then
+if xrandr --query | grep "^HDMI1 connected"; then
 #    if xrandr --query | grep "3840x2160"; then
 #        xrandr --auto --output "HDMI1" --dpi 120 --mode "3840x2160" --output "eDP1" --off --auto
 #    else
@@ -7,12 +7,16 @@ if xrandr --query | grep "HDMI1 connected"; then
 #    fi
     # /usr/local/libexec/hotplug_polybar.sh
     /usr/bin/notify-send --urgency=low -t 500 "Switched to HDMI1"
-elif xrandr --query | grep "DP2 connected"; then
+elif xrandr --query | grep "^DP1 connected"; then
+    xrandr --auto --output "DP1" --dpi 96 --mode "2560x1440" --output "eDP1" --off --auto
+    # /usr/local/libexec/hotplug_polybar.sh
+    /usr/bin/notify-send --urgency=low -t 500 "Switched to DP1"
+elif xrandr --query | grep "^DP2 connected"; then
     xrandr --auto --output "DP2" --dpi 96 --mode "2560x1440" --output "eDP1" --off --auto
     # /usr/local/libexec/hotplug_polybar.sh
     /usr/bin/notify-send --urgency=low -t 500 "Switched to DP2"
 else
-  xrandr --auto --output "eDP1" --dpi 120 --mode "2560x1440"
+  xrandr --auto --output "^eDP1" --dpi 120 --mode "2560x1440"
   # /usr/local/libexec/hotplug_polybar.sh
   /usr/bin/notify-send --urgency=low -t 500 "Switched to eDP1"
 fi
