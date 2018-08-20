@@ -9,6 +9,7 @@ help:
 	@echo "pry          # Creates the configuration files for Pry"
 	@echo "keybindings  # Configures keybindings"
 	@echo "fish         # Configures Fish"
+	@echo "vscode       # Configures Visual Studio Code"
 	@echo "termite      # Configures Termite"
 	@echo "i3           # Configures i3"
 	@echo "polybar      # Configures polybar"
@@ -62,6 +63,9 @@ keybindings:
 
 fish:
 	@ln -s ${PWD}/.config/fish ${HOME}/.config/
+
+vscode:
+	@ln -s ${PWD}/.config/Code ${HOME}/.config/
 
 polybar:
 	@ln -s ${PWD}/.config/polybar ${HOME}/.config/
