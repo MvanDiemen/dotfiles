@@ -10,7 +10,7 @@
     "zenMode.hideTabs": false,
     "editor.formatOnSave": true,
     "workbench.startupEditor": "none",
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 0,
     "editor.rulers": [
         80,
         120
@@ -68,5 +68,6 @@
     "terminal.external.linuxExec": "/usr/bin/terminator",
     "terminal.integrated.shell.linux": "/usr/bin/fish",
     "terminal.integrated.fontFamily": "Fira Code",
-    "terminal.integrated.fontSize": 14
+    "terminal.integrated.fontSize": 14,
+    "breadcrumbs.enabled": true
 }
