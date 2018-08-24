@@ -1,15 +1,24 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "ctrl+k",
-        "command": "workbench.action.toggleZenMode"
-    },
-    {
         "key": "ctrl+k z",
         "command": "-workbench.action.toggleZenMode"
     },
     {
         "key": "ctrl+f11",
         "command": "workbench.action.toggleCenteredLayout"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-extension.vim_ctrl+k",
+        "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]
