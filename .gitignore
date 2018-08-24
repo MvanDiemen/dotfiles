@@ -3,6 +3,21 @@
 .vim/spell
 .vim/bundle/**
 
+.config/Code/Backups
+.config/Code/Cache
+.config/Code/CachedData
+.config/Code/CachedExtensions
+.config/Code/Cookies
+.config/Code/Cookies-journal
+.config/Code/GPUCache
+.config/Code/Local Storage/
+.config/Code/Preferences
+.config/Code/User/workspaceStorage/
+.config/Code/languagepacks.json
+.config/Code/logs/
+.config/Code/machineid
+.config/Code/storage.json
+
 bin/chromedriver
 bin/fan-control
 bin/setup-laptop
