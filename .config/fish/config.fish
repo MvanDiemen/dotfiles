@@ -1,6 +1,7 @@
 set -x CHRUBY_ROOT /usr
 set -x TERM 'xterm-256color'
 set -Ux EDITOR '/usr/bin/nvim'
+set -Ux BROWSER '/usr/bin/brave'
 set -Ux GIT_EDITOR 'nvim'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x ES_HEAP_SIZE '1g'
