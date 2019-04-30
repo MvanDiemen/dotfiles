@@ -3,14 +3,13 @@
         "suppressLineUncommittedWarning": true,
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.colorTheme": "One Dark Pro Italic",
+    "workbench.colorTheme": "Night Owl",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "zenMode.fullScreen": false,
     "zenMode.hideTabs": false,
     "editor.formatOnSave": true,
     "workbench.startupEditor": "none",
-    "window.zoomLevel": 0,
     "editor.rulers": [
         80,
         120
@@ -20,7 +19,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.maxColumn": 80,
     "editor.scrollbar.vertical": "hidden",
-    "workbench.iconTheme": "file-icons",
+    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#388E3C",
         "list.activeSelectionForeground": "#388E3C",
@@ -41,7 +40,6 @@
         "accentPrevious": "Graphite"
     },
     "editor.letterSpacing": 0.1,
-    "editor.renderWhitespace": "none",
     "window.restoreWindows": "none",
     "vim.useSystemClipboard": true,
     "html.format.indentInnerHtml": true,
@@ -69,5 +67,17 @@
     "terminal.integrated.shell.linux": "/usr/bin/fish",
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 14,
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "vim.disableExtension": false,
+    "window.titleBarStyle": "custom",
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.cursorBlinking": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "elixirLS.suggestSpecs": false,
+    "workbench.statusBar.feedback.visible": false,
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+    "editor.cursorStyle": "line-thin",
+    "editor.fontSize": 15
 }
