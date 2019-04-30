@@ -29,10 +29,8 @@
 [colors]
 background-alt = #00ffffff
 background-alert = #44f0f0f0
-; background = #354660
 background = #282C34
-# foreground = #8bb6b7
-# foreground = #d6e0ff
+background-transparent = #55282C34
 foreground = #C8C8C8
 foreground-alt = #555
 primary = #ffb52a
@@ -54,7 +52,21 @@ lightgrey   = #cccccc
 magenta     = #f57900
 red         = #ff0000
 white       = #ffffff
-yellow      = #00ffff
+yellow      = #ffff00
+
+
+purple = #d55fde
+error = #f44747
+coral = #ef596f
+whiskey = #d19a66
+chalky = #e5c07b
+lightDark = #7F848E
+dark = #5C6370
+dark-transparent = #995C6370
+malibu = #61AFEF
+lightgreen = #89ca78
+fountainBlue = #2bbac5
+invalid = #FFFFFF
 
 spotify-green = #1db954
 
@@ -82,9 +94,9 @@ height = 35
 offset-x = 0
 offset-y = 0
 monitor  = ${env:MONITOR}
-bottom = true
+bottom = false
 
-background = ${colors.background}
+background = #00ffffff
 foreground = ${colors.foreground}
 
 overline-size = 2
@@ -92,10 +104,10 @@ overline-color = ${colors.background-alt}
 underline-size = 2
 underline-color = ${colors.background-alt}
 
-border-bottom-size = 5
+border-bottom-size = 2
 border-top-size = 0
-border-left-size = 5
-border-right-size = 5
+border-left-size = 2
+border-right-size = 2
 border-bottom-color = ${colors.background-alt}
 border-top-color = ${colors.background-alt}
 border-left-color = ${colors.background-alt}
@@ -107,10 +119,10 @@ padding-right = 5
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Noto Mono:pixelsize=13;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=13;0
-font-3 = FontAwesome:pixelsize=15;0
+font-0 = Noto Mono:pixelsize=15;1
+font-1 = unifont:size=13:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=16;0
+font-3 = FontAwesome:pixelsize=15;1
 
 modules-left = i3
 modules-center = date
@@ -118,7 +130,7 @@ modules-right = volume cpu memory backlight battery powermenu
 
 tray-position = right
 tray-padding = 2
-tray-background = ${colors.background}
+tray-background = #00ffffff
 
 ###########
 # TOP BAR #
@@ -130,9 +142,9 @@ height = 25
 offset-x = 0
 offset-y = 0
 monitor  = ${env:MONITOR}
-bottom = true
+bottom = false
 
-background = ${colors.background}
+background = #00ffffff
 foreground = ${colors.foreground}
 
 overline-size = 0
@@ -140,10 +152,10 @@ overline-color = #f00
 underline-size = 2
 underline-color = #00f
 
-border-bottom-size = 5
-border-top-size = 0
-border-left-size = 5
-border-right-size = 5
+border-bottom-size = 0
+border-top-size = 2
+border-left-size = 2
+border-right-size = 2
 border-bottom-color = ${colors.background-alt}
 border-top-color = ${colors.background-alt}
 border-left-color = ${colors.background-alt}
@@ -168,7 +180,7 @@ modules-right = volume cpu memory wlan battery powermenu
 
 tray-position = right
 tray-padding = 2
-tray-background = ${colors.background}
+tray-background = #00ffffff
 ##############
 # 4K TOP BAR #
 ##############
@@ -229,14 +241,16 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-strip-wsnumbers = false
+enable-scroll = false
+strip-wsnumbers = true
 pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.foreground}
 
-label-focused-background = ${colors.foreground}
-label-focused-foreground = ${colors.background}
+# label-focused-background = ${colors.dark}
+#label-focused-background = ${colors.background-transparent}
+label-focused-foreground = ${colors.purple}
 label-focused-padding = 2
 
 label-unfocused = %name%
@@ -248,7 +262,6 @@ label-urgent-foreground = ${colors.darkred}
 label-urgent-padding = 2
 
 label-visible = %name%
-label-visible-background = ${colors.background}
 label-visible-underline = $f3f99d
 label-visible-padding = 2
 
@@ -257,19 +270,19 @@ type = internal/backlight
 card = intel_backlight
 
 format = <label>
-label = " %percentage%%"
+label = "%{F#d19a66} %{F-}%percentage%%"
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format = <label>
-label =  %percentage%%
+label = "%{F#d19a66}%{F-} %percentage%%"
 
 [module/memory]
 type = internal/memory
 interval = 5
 format = <label>
-label =  %percentage_used%%
+label = "%{F#d19a66}%{F-} %percentage_used%%"
 
 [module/wlan]
 type = internal/network
@@ -277,7 +290,7 @@ interface = wlp4s0
 interval = 3.0
 
 format-connected = <label-connected>
-label-connected = " %essid%"
+label-connected = "%{F#d19a66} %{F-}%essid%"
 
 label-disconnected = "%{A1:connman-gtk &:}"
 label-disconnected-foreground = #5b
@@ -286,7 +299,7 @@ label-disconnected-foreground = #5b
 type = internal/network
 interval = 3.0
 
-format-connected-prefix = ""
+format-connected-prefix = "%{F#d19a66}%{F-}"
 format-connected-foreground-foreground = ${colors.foreground}
 
 label-connected = %local_ip%
@@ -300,18 +313,21 @@ type = internal/date
 interval = 1
 date = "%d %b"
 time = "%H:%M"
-format-foreground = ${colors.foreground}
-label = "  %date%     %time%"
+format-foreground = ${colors.white}
+# format-background = ${colors.background-transparent}
+label = "    %date%     %time%  "
 
 [module/volume]
-type = internal/alsa
+; type = internal/alsapacmd list-sinks
+type = internal/pulseaudio
+sink = bluez_sink.00_16_94_28_CC_51.a2dp_sink
 
 format-volume = <label-volume>
-label-volume = " %percentage%%"
-label-volume-foreground = ${root.foreground}
+label-volume = "%{F#d19a66} %{F-}%percentage%%"
+label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = ${colors.dark}
 
 [module/battery]
 type = internal/battery
@@ -322,29 +338,31 @@ poll-interval = 5
 time-format = %H:%M
 format-charging = <label-charging>
 format-discharging = "<ramp-capacity><label-discharging>"
-label-charging = " %percentage%%"
+label-charging = "%{F#d19a66}%{F-} %percentage%%"
 label-discharging = "%percentage%%"
-label-full = " %{percentage}%%"
+label-full = "%{F#d19a66}%{F-} %{percentage}%%"
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-bar-capacity-width = 10
+ramp-capacity-foreground = ${colors.whiskey}
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
+animation-foreground = ${colors.whiskey}
 animation-charging-framerate = 750
+
 [module/powermenu]
 type = custom/menu
 
 label-open = 
-label-open-foreground = ${colors.foreground}
+label-open-foreground = ${colors.error}
 label-close = 
-label-close-foreground = ${colors.foreground}
+label-close-foreground = ${colors.yellow}
 label-separator = |
 label-separator-foreground = ${colors.darkgrey}
 
