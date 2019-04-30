@@ -41,7 +41,7 @@
     background_darkness = 1.0
     background_type = transparent
     cursor_color = "#528bff"
-    font = Fira Code 12
+    font = Fira Code 13
     foreground_color = "#c8c8c8"
     login_shell = True
     palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
@@ -51,12 +51,12 @@
     show_titlebar = False
     use_system_font = False
   [[4ksetup]]
-    background_color = "#272E35"
+    background_color = "#282c34"
     background_darkness = 1.0
     background_type = transparent
-    cursor_color = "#abb2bf"
-    font = Hack 16
-    foreground_color = "#abb2bf"
+    cursor_color = "#528bff"
+    font = Fira Code 16
+    foreground_color = "#c8c8c8"
     login_shell = True
     palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     scroll_on_output = True
@@ -69,7 +69,7 @@
     background_darkness = 1.0
     background_type = transparent
     cursor_color = "#528bff"
-    font = Fira Code 14
+    font = Fira Code 18
     foreground_color = "#c8c8c8"
     login_shell = True
     palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
@@ -78,7 +78,7 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-   [[old-default]]
+  [[old-default]]
     background_color = "#212121"
     background_darkness = 1.0
     background_type = transparent
