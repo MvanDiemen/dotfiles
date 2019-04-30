@@ -9,7 +9,7 @@ font pango:Noto Sans UI 10
 floating_modifier $mod
 set $mod Mod1
 
-gaps inner 5
+gaps inner 2
 gaps outer 0
 
 ###################
@@ -23,10 +23,12 @@ set $text-color          #d6e9ff
 set $inactive-text-color #6e88a6
 set $urgent-bg-color     #e06c75
 set $indicator           #c8ae9d
+set $chalky              #e5c07b
+set $bd-color            #84927D
 
 # Window colors
 #                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          $indicator
+client.focused          $bd-color          $bg-color          $text-color          $indicator
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator
 client.urgent           $bg-color          $bg-color          $urgent-text-color   $indicator
@@ -42,7 +44,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg exit'"
-bindsym $mod+Shift+x exec betterlockscreen --lock
+bindsym $mod+Shift+x exec betterlockscreen -l dim
 # bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/firewatch.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#FFFFFF' -e
 
 bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
@@ -105,9 +107,10 @@ new_window pixel 2
 # Variables for workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+# set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
@@ -142,20 +145,22 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # WORKSPACE ASSIGNMENT #
 ########################
 
-assign [class="Terminator"] $workspace1
-assign [class="Termite"]    $workspace1
-assign [class="Franz"]      $workspace2
-assign [class="Slack"]      $workspace2
-assign [class="Chromium"]   $workspace3
-assign [class="Firefox"]    $workspace3
-assign [class="Code"]       $workspace4
-assign [class="Spotify"]    $workspace10
+assign [class="Terminator"]    $workspace1
+assign [class="Termite"]       $workspace1
+assign [class="Rambox"]        $workspace2
+assign [class="Slack"]         $workspace2
+assign [class="Chromium"]      $workspace3
+assign [class="Brave-browser"] $workspace3
+assign [class="Firefox"]       $workspace3
+assign [class="Code"]          $workspace4
+assign [class="Spotify"]       $workspace10
 
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [class="Nautilus"] floating enable
 for_window [class="Polo"] floating enable
 for_window [class="Green-recorder"] floating enable
 for_window [class="Lightscreen"] floating enable
+# for_window [class="Erlang"] floating enable
 
 #########
 # EXECS #
@@ -167,24 +172,29 @@ exec_always ~/.config/i3/i3_edp.sh
 # Startup background tasks
 exec compton -b --backend glx --paint-on-overlay --refresh-rate 60 --glx-no-stencil --glx-no-rebind-pixmap --glx-swap-method -1
 exec --no-startup-id nm-applet
+exec --no-startup-id bluetoothctl power on
+exec --no-startup-id blueman-applet
 exec --no-startup-id redis-server
 exec_always ~/.config/polybar/launch.sh
-# exec_always --no-startup-id polybar laptop
 
 # Startup application scripts
-exec ~/.config/i3/start_franz.sh
+exec ~/.config/i3/start_rambox.sh
 exec ~/.config/i3/start_slack.sh
-# exec ~/.config/i3/start_chromium.sh
-exec ~/.config/i3/start_firefox.sh
+exec ~/.config/i3/start_brave.sh
 exec ~/.config/i3/start_spotify.sh
 exec ~/.config/i3/start_terminal.sh
-# exec_always /opt/Kafka/kafka_2.11-1.1.0/bin/kafka-server-start.sh /opt/Kafka/kafka_2.11-1.1.0/server.properties
+exec /usr/bin/solaar
+exec_always /usr/bin/dunst
+exec_always /opt/kafka-2.11-2.1.0/bin/zookeeper-server-start.sh /opt/kafka-2.11-2.1.0/config/zookeeper.properties
+exec_always /opt/kafka-2.11-2.1.0/bin/kafka-server-start.sh /opt/kafka-2.11-2.1.0/config/server.properties
 
 # Set background
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper-v4-2560x1440.jpg
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/camping-time-nocal.png
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/xwing.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/jonatan-pie-234237-unsplash.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/vernazza.jpeg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/civilwar.jpg
 
+
+# exec_always --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/tellcharlie.png
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/
 
 # map keys on laptop keyboard
