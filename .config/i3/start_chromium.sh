@@ -7,7 +7,7 @@ if xrandr --query | grep "HDMI1 connected"; then
 elif xrandr --query | grep "DP2 connected"; then
   chromium
 else
-  chromium --force-device-scale-factor=1.2
+  chromium --force-device-scale-factor=1.5
 fi
 
 # if xrandr --query | grep "HDMI-1 connected"; then
