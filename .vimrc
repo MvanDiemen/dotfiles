@@ -38,10 +38,10 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'neomake/neomake'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'luochen1990/rainbow'
 Plug 'yorickpeterse/happy_hacking.vim'
 Plug 'joshdick/onedark.vim'
 
