@@ -106,29 +106,11 @@ color onedark
 " set tabstop=2
 " set expandtab
 
-
 " ============================================================================
 " NEOMAKE
 "
 
 let g:neomake_elixir_enabled_makers = ['credo']
-" let g:neomake_elixir_mix_maker = {
-"             \ 'args': ['compile'],
-"             \ 'errorformat':
-"             \ '** %s %f:%l: %m,' .
-"             \ '%f:%l: warning: %m'
-"             \ }
-" let g:neomake_elixir_test_maker = {
-"             \ 'exe': 'mix',
-"             \ 'args': ['test'],
-"             \ 'errorformat':
-"                 \ '%Z       %f:%l,' .
-"                 \ '%C     ** %m,' .
-"                 \ '%C     %[%^:]%#:%.%#,' .
-"                 \ '%C     %m,' .
-"                 \ '%E  %n)%.%#'
-" \ }
-
 " ============================================================================
 " FZF
 "
