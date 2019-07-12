@@ -23,8 +23,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 "
 
 Plug 'mileszs/ack.vim'
-Plug 'rakr/vim-two-firewatch'
-Plug 'ajmwagar/vim-deus'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -38,12 +36,19 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'slashmili/alchemist.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
 Plug 'neomake/neomake'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'yorickpeterse/happy_hacking.vim'
+
+" =============
+" COLOR SCHEMES
+"
+"
+Plug 'ajmwagar/vim-deus'
+Plug 'rakr/vim-two-firewatch'
 Plug 'joshdick/onedark.vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'dunstontc/vim-vscode-theme'
+Plug 'flrnprz/plastic.vim'
 
 " =========
 " LANGUAGES
@@ -52,6 +57,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dag/vim-fish'
 Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
 
 call plug#end()
 
@@ -159,6 +165,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
+
+set formatprg=mix\ format\ -
 
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
