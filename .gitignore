@@ -29,3 +29,10 @@
 bin/chromedriver
 bin/fan-control
 bin/setup-laptop
+
+
+# ignore compiled fish files
+.config/fish/fish_variables
+.config/fish/fishd.alpaca
+.config/fish/fishfile
+
