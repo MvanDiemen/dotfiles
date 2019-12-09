@@ -65,7 +65,6 @@
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 14,
     "breadcrumbs.enabled": true,
-    "vim.disableExtension": false,
     "window.titleBarStyle": "custom",
     "workbench.panel.defaultLocation": "right",
     "terminal.integrated.cursorBlinking": true,
@@ -100,5 +99,6 @@
     "atlascode.bitbucket.statusbar.showUser": false,
     "window.menuBarVisibility": "visible",
     "workbench.iconTheme": "material-icon-theme",
-    "oneDark.bold": true
+    "oneDark.bold": true,
+    "vim.autoSwitchInputMethod.enable": true
 }
