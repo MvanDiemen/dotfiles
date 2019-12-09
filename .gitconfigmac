@@ -13,13 +13,19 @@
   filemode     = false
   excludesfile = /home/michaelvandiemen/.gitignore_global
   ignorecase   = false
-  editor       = mvim -f
+  editor       = nvim -f
 
 [color]
   ui = true
 
 [mergetool "fugitive"]
-  cmd = gvim -f -c \"Gdiff\" \"$MERGED\"
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 
 [merge]
   tool = fugitive
+
+[push]
+  default = current
+
+[pull]
+  default = current
