@@ -24,6 +24,7 @@
 
 # File with business stuff / keys
 .config/fish/config.secret.fish
+.config/fish/functions/secret/
 
 bin/chromedriver
 bin/fan-control
