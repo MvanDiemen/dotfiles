@@ -1,3 +1,5 @@
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 set -x CHRUBY_ROOT /usr
 set -x TERM 'xterm-256color'
 set -Ux EDITOR '/usr/bin/nvim'
@@ -12,13 +14,13 @@ set -x VISUAL '/usr/bin/nvim'
 set -Ux LC_ALL 'en_GB.UTF8'
 set -Ux LANG 'en_GB.UTF8'
 
-
-export ERL_AFLAGS="-kernel shell_history enabled"
-
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
 set -U FZF_LEGACY_KEYBINDINGS 0
+set -x KERL_CONFIGURE_OPTIONS '--disable-debug --without-javac'
 
 set -gx PATH '~/.npm-global/bin' $PATH
+
+source $HOME/.config/fish/config.secret.fish
 
 set fish_greeting
 
@@ -60,3 +62,6 @@ if status --is-login
 end
 
 bind \cr "rake"
+source $HOME/.asdf/asdf.fish
+set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+status --is-interactive; and source (rbenv init -|psub)
