@@ -17,6 +17,13 @@
 .config/Code/logs/
 .config/Code/machineid
 .config/Code/storage.json
+.config/Code/Network Persistent State
+.config/Code/Code Cache/
+.config/Code/rapid_render.json
+.config/Code/User/globalStorage/state.vscdb
+
+# File with business stuff / keys
+.config/fish/config.secret.fish
 
 bin/chromedriver
 bin/fan-control
