@@ -3,7 +3,6 @@
         "suppressLineUncommittedWarning": true,
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.colorTheme": "Night Owl",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "zenMode.fullScreen": false,
@@ -19,7 +18,6 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.maxColumn": 80,
     "editor.scrollbar.vertical": "hidden",
-    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#388E3C",
         "list.activeSelectionForeground": "#388E3C",
@@ -60,7 +58,6 @@
         "files.trimTrailingWhitespace": true,
         "files.insertFinalNewline": true
     },
-    "prettier.eslintIntegration": true,
     "eslint.packageManager": "yarn",
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
     "terminal.external.linuxExec": "/usr/bin/terminator",
@@ -79,5 +76,29 @@
     "window.zoomLevel": 0,
     "editor.tabSize": 2,
     "editor.cursorStyle": "line-thin",
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "search.showLineNumbers": true,
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "atlascode.jira.workingSite": {
+        "baseUrlSuffix": "atlassian.net"
+    },
+    "yaml.schemas": {
+        "file:///home/michael/.vscode/extensions/atlassian.atlascode-1.4.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "atlascode.bitbucket.contextMenus.enabled": false,
+    "atlascode.bitbucket.explorer.notifications.pullRequestCreated": false,
+    "atlascode.bitbucket.explorer.enabled": false,
+    "atlascode.bitbucket.explorer.relatedJiraIssues.enabled": false,
+    "atlascode.bitbucket.issues.explorerEnabled": false,
+    "atlascode.bitbucket.issues.monitorEnabled": false,
+    "atlascode.bitbucket.pipelines.hideEmpty": false,
+    "atlascode.bitbucket.pipelines.explorerEnabled": false,
+    "atlascode.bitbucket.pipelines.monitorEnabled": false,
+    "atlascode.bitbucket.statusbar.enabled": false,
+    "atlascode.bitbucket.statusbar.showLogin": false,
+    "atlascode.bitbucket.statusbar.showProduct": false,
+    "atlascode.bitbucket.statusbar.showUser": false,
+    "window.menuBarVisibility": "visible",
+    "workbench.iconTheme": "material-icon-theme",
+    "oneDark.bold": true
 }
