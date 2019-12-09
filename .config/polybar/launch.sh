@@ -13,14 +13,20 @@ else
   # [[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar 4ktop &
   [[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar top &
 
-  DISPLAY3="$(xrandr -q | grep '^DP1 connected' | cut -d ' ' -f1)"
-  [[ ! -z "$DISPLAY3" ]] && MONITOR="DP1" polybar top &
+  DISPLAY2="$(xrandr -q | grep '^DP1 connected' | cut -d ' ' -f1)"
+  [[ ! -z "$DISPLAY2" ]] && MONITOR="DP1" polybar top &
 
-  DISPLAY4="$(xrandr -q | grep "^DP2 connected" | cut -d ' ' -f1)"
-  [[ ! -z "$DISPLAY4" ]] && MONITOR="DP2" polybar top &
+  DISPLAY3="$(xrandr -q | grep "^DP2 connected" | cut -d ' ' -f1)"
+  [[ ! -z "$DISPLAY3" ]] && MONITOR="DP2" polybar top &
 
-  DISPLAY2="$(xrandr -q | grep '^eDP1 connected' | cut -d ' ' -f1)"
-  [[ ! -z "$DISPLAY2" ]] && MONITOR="eDP1" polybar laptop &
+  DISPLAY4="$(xrandr -q | grep "^DP2-3 connected" | cut -d ' ' -f1)"
+  [[ ! -z "$DISPLAY4" ]] && MONITOR="DP2-3" polybar top &
+
+  DISPLAY5="$(xrandr -q | grep "^DP1-3 connected" | cut -d ' ' -f1)"
+  [[ ! -z "$DISPLAY5" ]] && MONITOR="DP1-3" polybar top &
+
+  DISPLAY6="$(xrandr -q | grep '^eDP1 connected' | cut -d ' ' -f1)"
+  [[ ! -z "$DISPLAY6" ]] && MONITOR="eDP1" polybar laptop &
 fi
 
 echo "Bars launched..."
