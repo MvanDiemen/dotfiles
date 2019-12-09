@@ -45,7 +45,6 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg exit'"
 bindsym $mod+Shift+x exec betterlockscreen -l dim
-# bindsym $mod+Shift+x exec i3lock -i /home/michael/Pictures/firewatch.png -p default -d -n -c '#000000' -o '#191d0f' -w '#572020' -l '#FFFFFF' -e
 
 bindsym $mod+Return exec ~/.config/i3/start_terminal.sh
 bindsym $mod+Shift+q kill
@@ -110,7 +109,6 @@ set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
 set $workspace5 "5: "
-# set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
@@ -160,7 +158,6 @@ for_window [class="Nautilus"] floating enable
 for_window [class="Polo"] floating enable
 for_window [class="Green-recorder"] floating enable
 for_window [class="Lightscreen"] floating enable
-# for_window [class="Erlang"] floating enable
 
 #########
 # EXECS #
@@ -189,12 +186,7 @@ exec_always /opt/kafka-2.12_2.3.0/bin/zookeeper-server-start.sh /opt/kafka-2.12_
 exec_always /opt/kafka-2.12_2.3.0/bin/kafka-server-start.sh /opt/kafka-2.12_2.3.0/config/server.properties
 
 # Set background
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/jonatan-pie-234237-unsplash.jpg
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/vernazza.jpeg
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/civilwar.jpg
-
-
-# exec_always --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/tellcharlie.png
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/
 
 # map keys on laptop keyboard
