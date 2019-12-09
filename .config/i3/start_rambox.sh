@@ -1,23 +1,20 @@
-if xrandr --query | grep "HDMI1 connected"; then
-  if xrandr --query | grep "HDMI1" | grep "3840x2160"; then
-    rambox --force-device-scale-factor=1.5
-  else
-    rambox
-  fi
-elif xrandr --query | grep "DP2 connected"; then
-  rambox
+#!/bin/bash
+if xrandr | grep "^HDMI1 connected"; then
+  ZOOM="1.5"
+elif xrandr | grep "^DP1 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP2 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP2-3 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP1-3 connected"; then
+  unset -v ZOOM
+else
+  ZOOM="1.5"
+fi
+
+if [ -n "$ZOOM" ]; then
+  rambox --force-device-scale-factor=$ZOOM
 else
   rambox
 fi
-
-# if xrandr --query | grep "HDMI-1 connected"; then
-#   if xrandr --query | grep "3840x2160"; then
-#     franz --force-device-scale-factor=1.5
-#   else
-#     franz
-#   fi
-# elif xrandr --query | grep "DP-2 connected"; then
-#   franz
-# else
-#   franz
-# fi

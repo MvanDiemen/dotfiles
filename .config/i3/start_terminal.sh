@@ -1,15 +1,20 @@
-if xrandr --query | grep "HDMI1 connected"; then
-  if xrandr --query | grep "HDMI1" | grep "3840x2160"; then
-    terminator --profile 4ksetup
-    # alacritty
-  else
-    terminator
-    # alacritty
-  fi
-elif xrandr --query | grep "DP2 connected"; then
-  terminator
-  # alacritty
+#!/bin/bash
+if xrandr | grep "^HDMI1 connected"; then
+  PROFILE="4ksetup"
+elif xrandr | grep "^DP1 connected"; then
+  unset -v PROFILE
+elif xrandr | grep "^DP2 connected"; then
+  unset -v PROFILE
+elif xrandr | grep "^DP2-3 connected"; then
+  unset -v PROFILE
+elif xrandr | grep "^DP1-3 connected"; then
+  unset -v PROFILE
 else
-  terminator --profile laptop
-  # alacritty
+  PROFILE="laptop"
+fi
+
+if [ -n "$PROFILE" ]; then
+  terminator --profile $PROFILE
+else
+  terminator
 fi

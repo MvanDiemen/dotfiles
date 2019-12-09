@@ -1,11 +1,20 @@
-if xrandr --query | grep "HDMI1 connected"; then
-  if xrandr --query | grep "3840x2160"; then
-    brave --force-device-scale-factor=1.5
-  else
-    brave
-  fi
-elif xrandr --query | grep "DP2 connected"; then
-  brave
+#!/bin/bash
+if xrandr | grep "^HDMI1 connected"; then
+  ZOOM="1.5"
+elif xrandr | grep "^DP1 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP2 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP2-3 connected"; then
+  unset -v ZOOM
+elif xrandr | grep "^DP1-3 connected"; then
+  unset -v ZOOM
 else
-  brave --force-device-scale-factor=1.5
+  ZOOM="1.5"
+fi
+
+if [ -n "$ZOOM" ]; then
+  brave --force-device-scale-factor=$ZOOM
+else
+  brave
 fi
