@@ -35,8 +35,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'slashmili/alchemist.vim'
-Plug 'neomake/neomake'
 Plug 'enricobacis/vim-airline-clock'
 
 " =============
@@ -58,6 +56,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dag/vim-fish'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
+
+" ============
+" ELIXIR STUFF
+"
+Plug 'neomake/neomake'
+Plug 'slashmili/alchemist.vim'
+Plug 'tpope/vim-projectionist'
+Plug 'c-brenn/phoenix.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
 
@@ -100,17 +108,46 @@ set autoindent
 set background=dark
 color onedark
 
-" " Indentation settings
-" set shiftwidth=2
-" set softtabstop=2
-" set tabstop=2
-" set expandtab
-
 " ============================================================================
 " NEOMAKE
 "
 
-let g:neomake_elixir_enabled_makers = ['credo']
+" Run Neomake when I save any buffer
+augroup localneomake
+  autocmd! BufWritePost * Neomake
+augroup END
+" Don't tell me to use smartquotes in markdown ok?
+let g:neomake_markdown_enabled_makers = []
+
+" Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
+let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+function! NeomakeCredoErrorType(entry)
+  if a:entry.type ==# 'F'      " Refactoring opportunities
+    let l:type = 'W'
+  elseif a:entry.type ==# 'D'  " Software design suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'W'  " Warnings
+    let l:type = 'W'
+  elseif a:entry.type ==# 'R'  " Readability suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'C'  " Convention violation
+    let l:type = 'W'
+  else
+    let l:type = 'M'           " Everything else is a message
+  endif
+  let a:entry.type = l:type
+endfunction
+
+let g:neomake_elixir_mycredo_maker = {
+  \ 'exe': 'mix',
+  \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+  \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
+  \ 'postprocess': function('NeomakeCredoErrorType')
+  \ }
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+"
 " ============================================================================
 " FZF
 "
