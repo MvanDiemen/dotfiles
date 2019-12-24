@@ -47,6 +47,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'haishanh/night-owl.vim'
 Plug 'dunstontc/vim-vscode-theme'
 Plug 'flrnprz/plastic.vim'
+Plug 'morhetz/gruvbox'
 
 " =========
 " LANGUAGES
@@ -91,6 +92,12 @@ set guioptions=aemc " Do not show GUI Messages & Remove scroll bars
 set signcolumn=yes  " Git Gutter settings
 
 
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+
 " ===========================================================================
 " SYNTAX SETTINGS
 "
@@ -106,7 +113,7 @@ set colorcolumn+=120
 set smartindent
 set autoindent
 set background=dark
-color onedark
+color gruvbox
 
 " ============================================================================
 " NEOMAKE
@@ -147,7 +154,7 @@ let g:neomake_elixir_mycredo_maker = {
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-"
+
 " ============================================================================
 " FZF
 "
@@ -194,6 +201,7 @@ let g:vim_json_syntax_conceal = 0
 let g:two_firewatch_italics   = 1
 let g:alchemist_tag_disable   = 1
 let g:rainbow_active          = 0
+let g:gruvbox_contrast_dark   = 'dark'
 
 " NERDTree settings.
 let g:NERDTreeShowHidden = 1
@@ -214,7 +222,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
-let g:airline_theme           = 'onedark'
+let g:airline_theme           = 'gruvbox'
 " let g:airline#extensions#neomake#enabled = 1
 
 if !exists('g:airline_symbols')
