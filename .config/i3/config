@@ -182,11 +182,11 @@ exec ~/.config/i3/start_spotify.sh
 exec ~/.config/i3/start_terminal.sh
 exec /usr/bin/solaar
 exec_always /usr/bin/dunst
-exec_always /opt/kafka-2.12_2.3.0/bin/zookeeper-server-start.sh /opt/kafka-2.12_2.3.0/config/zookeeper.properties
-exec_always /opt/kafka-2.12_2.3.0/bin/kafka-server-start.sh /opt/kafka-2.12_2.3.0/config/server.properties
+exec_always /opt/kafka_2.12-2.3.0/bin/zookeeper-server-start.sh /opt/kafka_2.12-2.3.0/config/zookeeper.properties
+exec_always /opt/kafka_2.12-2.3.0/bin/kafka-server-start.sh /opt/kafka_2.12-2.3.0/config/server.properties
 
 # Set background
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/civilwar.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/earth.jpg
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/
 
 # map keys on laptop keyboard
