@@ -37,14 +37,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282c34"
-    background_darkness = 1.0
-    background_type = transparent
-    cursor_color = "#528bff"
+    background_color = "#282828"
+    cursor_color = "#7c6f64"
     font = Fira Code 13
-    foreground_color = "#c8c8c8"
+    foreground_color = "#ebdbb2"
     login_shell = True
-    palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
+    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     scroll_on_output = True
     scrollback_infinite = True
     scrollbar_position = hidden
@@ -73,76 +71,19 @@
     foreground_color = "#c8c8c8"
     login_shell = True
     palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
-    scroll_on_output = True
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[old-default]]
-    background_color = "#212121"
-    background_darkness = 1.0
-    background_type = transparent
-    cursor_color = "#abb2bf"
-    font = Hack 10
-    foreground_color = "#abb2bf"
-    login_shell = True
-    palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
-    scroll_on_output = True
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[old-laptop]]
+  [[onedark]]
     background_color = "#282c34"
     background_darkness = 1.0
     background_type = transparent
     cursor_color = "#528bff"
-    font = Fira Code 14
-    foreground_color = "#C8C8C8"
+    font = Fira Code 13
+    foreground_color = "#c8c8c8"
     login_shell = True
-    palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#6086d7:#b294bb:#56b6c2:#ffffff"
-    scroll_on_output = True
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[solarized-dark]]
-    background_color = "#002b36"
-    background_darkness = 1.0
-    background_type = transparent
-    cursor_color = "#eee8d5"
-    font = Hack 16
-    foreground_color = "#eee8d5"
-    login_shell = True
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scroll_on_output = True
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[solarized-light]]
-    background_color = "#FDF6E3"
-    background_darkness = 1.0
-    background_type = transparent
-    cursor_color = "#875f00"
-    font = Hack 10
-    foreground_color = "#875f00"
-    login_shell = True
-    palette = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
-    scroll_on_output = True
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[solarized-light-original]]
-    background_color = "#eee8d5"
-    background_darkness = 1.0
-    background_type = transparent
-    cursor_color = "#002b36"
-    font = Hack 10
-    foreground_color = "#002b36"
-    login_shell = True
-    palette = "#073642:#d30102:#859900:#b58900:#6c71c4:#d33682:#2aa198:#839496:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#93a1a1"
+    palette = "#55606d:#e06c75:#b5bd68:#dd672c:#6e88a6:#b294bb:#56b6c2:#c5c8c6:#969896:#e06c75:#b5bd68:#dd672c:#636d83:#b294bb:#56b6c2:#ffffff"
     scroll_on_output = True
     scrollback_infinite = True
     scrollbar_position = hidden
