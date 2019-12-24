@@ -72,12 +72,12 @@
     "gitlens.views.lineHistory.enabled": true,
     "elixirLS.suggestSpecs": false,
     "workbench.statusBar.feedback.visible": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 2,
     "editor.tabSize": 2,
     "editor.cursorStyle": "line-thin",
     "editor.fontSize": 15,
     "search.showLineNumbers": true,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
     "atlascode.jira.workingSite": {
         "baseUrlSuffix": "atlassian.net"
     },
@@ -99,6 +99,5 @@
     "atlascode.bitbucket.statusbar.showUser": false,
     "window.menuBarVisibility": "visible",
     "workbench.iconTheme": "material-icon-theme",
-    "oneDark.bold": true,
-    "vim.autoSwitchInputMethod.enable": true
+    "oneDark.bold": true
 }
