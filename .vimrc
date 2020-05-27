@@ -23,7 +23,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 "
 
 Plug 'mileszs/ack.vim'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'jremmen/vim-ripgrep'
@@ -36,18 +36,17 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'enricobacis/vim-airline-clock'
+Plug 'junegunn/goyo.vim'
 
 " =============
 " COLOR SCHEMES
 "
 "
-Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-two-firewatch'
 Plug 'joshdick/onedark.vim'
 Plug 'haishanh/night-owl.vim'
-Plug 'dunstontc/vim-vscode-theme'
-Plug 'flrnprz/plastic.vim'
 Plug 'morhetz/gruvbox'
+Plug 'ntk148v/vim-horizon'
 
 " =========
 " LANGUAGES
@@ -97,6 +96,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+set tw=120
+set wrap linebreak
+
 
 " ===========================================================================
 " SYNTAX SETTINGS
@@ -105,7 +107,7 @@ set shiftwidth=2
 " width, what theme to use and so on.
 "
 set textwidth=120
-set nowrap
+" set nowrap
 set number
 set synmaxcol=400
 set colorcolumn=80
@@ -192,7 +194,12 @@ let g:indentLine_char = '|'
 let g:indentLine_first_char = '¦'
 let g:indentLine_showFirstIndentLevel = 1
 
-set formatprg=mix\ format\ -
+" Goyo settings
+let g:goyo_width = 120
+let g:goyo_linenr = 1
+
+" set formatprg=mix\ format\ -
+
 
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
@@ -223,6 +230,9 @@ let g:NERDTreeIndicatorMapCustom = {
 " Airline/Powerline settings.
 let g:airline_powerline_fonts = 1
 let g:airline_theme           = 'gruvbox'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_disable_statusline = 0
 " let g:airline#extensions#neomake#enabled = 1
 
 if !exists('g:airline_symbols')
@@ -272,6 +282,7 @@ function! Trim()
 " Automatically strip trailing whitespace.
 autocmd! BufWritePre * :call Trim()
 autocmd! BufWritePost * Neomake
+autocmd BufWritePost *.exs,*.ex silent :!mix format %
 
 " Set a few filetypes for some uncommon extensions
 au BufRead,BufNewFile *.md     setf markdown
