@@ -1,7 +1,3 @@
-set -x asdf_data_dir (
-  if test -n "$ASDF_DATA_DIR"; echo $ASDF_DATA_DIR;
-  else; echo $HOME/.asdf; end)
-
 function __fish_asdf_needs_command
     set -l cmd (commandline -opc)
     if test (count $cmd) -eq 1
