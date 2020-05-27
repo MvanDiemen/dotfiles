@@ -119,14 +119,14 @@ padding-right = 5
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Noto Mono:pixelsize=15;1
+font-0 = Noto Sans:pixelsize=15;1
 font-1 = unifont:size=13:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=16;0
 font-3 = FontAwesome:pixelsize=15;1
 
 modules-left = i3
 modules-center = date
-modules-right = volume cpu memory backlight battery powermenu
+modules-right = volume cpu wlan memory backlight battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -167,10 +167,10 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Noto Mono:pixelsize=10;1
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=11;0
+font-0 = Noto Sans:pixelsize=12;1
+font-1 = unifont:size=8:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=12;0
+font-3 = FontAwesome:pixelsize=12;0
 
 modules-left = i3
 modules-center = date
@@ -181,6 +181,7 @@ modules-right = volume cpu memory wlan battery powermenu
 tray-position = right
 tray-padding = 2
 tray-background = #00ffffff
+
 ##############
 # 4K TOP BAR #
 ##############
@@ -190,8 +191,10 @@ width = 100%
 height = 40
 offset-x = 0
 offset-y = 0
+monitor  = ${env:MONITOR}
+bottom = false
 
-background = ${colors.background}
+background = #00ffffff
 foreground = ${colors.foreground}
 
 overline-size = 0
@@ -200,26 +203,34 @@ underline-size = 2
 underline-color = #00f
 
 border-bottom-size = 0
-border-bottom-color = ${colors.background}
+border-top-size = 2
+border-left-size = 2
+border-right-size = 2
+border-bottom-color = ${colors.background-alt}
+border-top-color = ${colors.background-alt}
+border-left-color = ${colors.background-alt}
+border-right-color = ${colors.background-alt}
 
 spacing = 1
-padding-left = 0
+padding-left = 1
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Fira Code:pixelsize=14;1
-font-1 = unifont:size=12:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=14;0
-font-3 = FontAwesome:pixelsize=16;0
+font-0 = Noto Sans:pixelsize=16;1
+font-1 = unifont:size=16:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=18;0
+font-3 = FontAwesome:pixelsize=20;0
 
 modules-left = i3
 modules-center = date
 modules-right = volume cpu memory wlan battery powermenu
 
+; tray-position = right
+
 tray-position = right
-tray-padding = 0
-tray-transparent = true
+tray-padding = 2
+tray-background = #00ffffff
 
 ###########
 # MODULES #
