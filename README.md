@@ -1,5 +1,7 @@
 # Dotfiles
 
+> ⚠️ **Deprecated** Please check [configuration](https://github.com/MvanDiemen/configuration)
+
 ## Setup
 * There's a Makefile for setup **(not complete)**
 
